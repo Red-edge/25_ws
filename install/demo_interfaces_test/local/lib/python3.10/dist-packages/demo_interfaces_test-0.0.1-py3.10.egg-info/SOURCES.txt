@@ -1,0 +1,8 @@
+setup.py
+demo_interfaces_test/__init__.py
+demo_interfaces_test.egg-info/PKG-INFO
+demo_interfaces_test.egg-info/SOURCES.txt
+demo_interfaces_test.egg-info/dependency_links.txt
+demo_interfaces_test.egg-info/top_level.txt
+demo_interfaces_test/msg/__init__.py
+demo_interfaces_test/msg/_test_msg.py

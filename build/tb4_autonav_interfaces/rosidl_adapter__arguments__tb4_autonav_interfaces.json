@@ -1,0 +1,6 @@
+{
+  "package_name": "tb4_autonav_interfaces",
+  "non_idl_tuples": [
+    "/home/rededge/25_ws/src/tb4_autonav_interfaces:msg/TrafficEvent.msg"
+  ]
+}

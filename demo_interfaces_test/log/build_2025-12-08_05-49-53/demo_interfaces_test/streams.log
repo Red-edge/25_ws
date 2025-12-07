@@ -1,0 +1,30 @@
+[0.008s] Invoking command in '/home/rededge/25_ws/demo_interfaces_test/build/demo_interfaces_test': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rededge/25_ws/demo_interfaces_test -DCMAKE_INSTALL_PREFIX=/home/rededge/25_ws/demo_interfaces_test/install/demo_interfaces_test
+[0.049s] -- The C compiler identification is GNU 11.4.0
+[0.090s] -- The CXX compiler identification is GNU 11.4.0
+[0.096s] -- Detecting C compiler ABI info
+[0.150s] -- Detecting C compiler ABI info - done
+[0.155s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.156s] -- Detecting C compile features
+[0.156s] -- Detecting C compile features - done
+[0.158s] -- Detecting CXX compiler ABI info
+[0.218s] -- Detecting CXX compiler ABI info - done
+[0.224s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.224s] -- Detecting CXX compile features
+[0.224s] -- Detecting CXX compile features - done
+[0.227s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.334s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.404s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.407s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.414s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.449s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.601s] [31mCMake Error at /opt/ros/humble/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:229 (message):
+[0.601s]   Packages installing interfaces must include
+[0.601s]   '<member_of_group>rosidl_interface_packages</member_of_group>' in their
+[0.601s]   package.xml
+[0.601s] Call Stack (most recent call first):
+[0.601s]   CMakeLists.txt:7 (rosidl_generate_interfaces)
+[0.601s] 
+[0.601s] [0m
+[0.601s] -- Configuring incomplete, errors occurred!
+[0.601s] See also "/home/rededge/25_ws/demo_interfaces_test/build/demo_interfaces_test/CMakeFiles/CMakeOutput.log".
+[0.607s] Invoked command in '/home/rededge/25_ws/demo_interfaces_test/build/demo_interfaces_test' returned '1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rededge/25_ws/demo_interfaces_test -DCMAKE_INSTALL_PREFIX=/home/rededge/25_ws/demo_interfaces_test/install/demo_interfaces_test

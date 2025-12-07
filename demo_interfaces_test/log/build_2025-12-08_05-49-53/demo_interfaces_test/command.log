@@ -1,0 +1,2 @@
+Invoking command in '/home/rededge/25_ws/demo_interfaces_test/build/demo_interfaces_test': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rededge/25_ws/demo_interfaces_test -DCMAKE_INSTALL_PREFIX=/home/rededge/25_ws/demo_interfaces_test/install/demo_interfaces_test
+Invoked command in '/home/rededge/25_ws/demo_interfaces_test/build/demo_interfaces_test' returned '1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rededge/25_ws/demo_interfaces_test -DCMAKE_INSTALL_PREFIX=/home/rededge/25_ws/demo_interfaces_test/install/demo_interfaces_test

@@ -35,9 +35,9 @@ setup(
         'console_scripts': [
             # 'node_name = tb4_autonav.module_name:main_function',
             'waypoint_navigator = tb4_autonav.waypoint_navigator:main',
-            'task_navigator = tb4_autonav.(undertest)task_navigator:main',
-            'task_combined_navigator = tb4_autonav.(undertest)task_combined_navigator:main',
-            'traffic_detector_node = tb4_autonav.(undertest)traffic_detector_node:main',
+            'task_navigator = tb4_autonav.task_navigator:main',
+            'task_combined_navigator = tb4_autonav.task_combined_navigator:main',
+            'traffic_detector_node = tb4_autonav.traffic_detector_node:main',
         ],
     },
 )

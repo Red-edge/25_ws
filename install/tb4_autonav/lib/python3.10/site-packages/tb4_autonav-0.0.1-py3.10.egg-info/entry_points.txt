@@ -1,3 +1,6 @@
 [console_scripts]
+task_combined_navigator = tb4_autonav.task_combined_navigator:main
+task_navigator = tb4_autonav.task_navigator:main
+traffic_detector_node = tb4_autonav.traffic_detector_node:main
 waypoint_navigator = tb4_autonav.waypoint_navigator:main
 

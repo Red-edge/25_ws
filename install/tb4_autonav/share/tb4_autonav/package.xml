@@ -23,7 +23,14 @@
 
   <exec_depend>turtlebot4_bringup</exec_depend>
   <exec_depend>turtlebot4_navigation</exec_depend>
+  <exec_depend>tb4_autonav_interfaces</exec_depend>
   <exec_depend>rviz2</exec_depend>
+
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>nav2_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>cv_bridge</exec_depend> 
 
   <export>
     <!-- 告诉 colcon：这是一个 ament_python 包，不要当 CMake 包 -->

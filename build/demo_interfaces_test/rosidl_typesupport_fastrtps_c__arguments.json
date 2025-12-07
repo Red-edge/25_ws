@@ -1,0 +1,19 @@
+{
+  "package_name": "demo_interfaces_test",
+  "output_dir": "/home/rededge/25_ws/build/demo_interfaces_test/rosidl_typesupport_fastrtps_c/demo_interfaces_test",
+  "template_dir": "/opt/ros/humble/share/rosidl_typesupport_fastrtps_c/resource",
+  "idl_tuples": [
+    "/home/rededge/25_ws/build/demo_interfaces_test/rosidl_adapter/demo_interfaces_test:msg/TestMsg.idl"
+  ],
+  "target_dependencies": [
+    "/opt/ros/humble/lib/rosidl_typesupport_fastrtps_c/rosidl_typesupport_fastrtps_c",
+    "/opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_typesupport_fastrtps_c/__init__.py",
+    "/opt/ros/humble/share/rosidl_typesupport_fastrtps_c/resource/idl__rosidl_typesupport_fastrtps_c.h.em",
+    "/opt/ros/humble/share/rosidl_typesupport_fastrtps_c/resource/idl__type_support_c.cpp.em",
+    "/opt/ros/humble/share/rosidl_typesupport_fastrtps_c/resource/msg__rosidl_typesupport_fastrtps_c.h.em",
+    "/opt/ros/humble/share/rosidl_typesupport_fastrtps_c/resource/msg__type_support_c.cpp.em",
+    "/opt/ros/humble/share/rosidl_typesupport_fastrtps_c/resource/srv__rosidl_typesupport_fastrtps_c.h.em",
+    "/opt/ros/humble/share/rosidl_typesupport_fastrtps_c/resource/srv__type_support_c.cpp.em",
+    "/home/rededge/25_ws/build/demo_interfaces_test/rosidl_adapter/demo_interfaces_test/msg/TestMsg.idl"
+  ]
+}

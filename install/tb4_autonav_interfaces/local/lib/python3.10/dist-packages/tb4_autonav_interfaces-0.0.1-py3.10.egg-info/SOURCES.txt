@@ -1,0 +1,8 @@
+setup.py
+tb4_autonav_interfaces/__init__.py
+tb4_autonav_interfaces.egg-info/PKG-INFO
+tb4_autonav_interfaces.egg-info/SOURCES.txt
+tb4_autonav_interfaces.egg-info/dependency_links.txt
+tb4_autonav_interfaces.egg-info/top_level.txt
+tb4_autonav_interfaces/msg/__init__.py
+tb4_autonav_interfaces/msg/_traffic_event.py

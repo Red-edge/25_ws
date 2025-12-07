@@ -1,1 +1,1 @@
-ament_index_python:launch:launch_ros:rclpy:rviz2:turtlebot4_bringup:turtlebot4_navigation
+ament_index_python:cv_bridge:geometry_msgs:launch:launch_ros:nav2_msgs:rclpy:rviz2:sensor_msgs:std_msgs:tb4_autonav_interfaces:turtlebot4_bringup:turtlebot4_navigation

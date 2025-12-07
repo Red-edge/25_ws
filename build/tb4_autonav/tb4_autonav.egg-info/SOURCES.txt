@@ -11,8 +11,12 @@ setup.py
 config/slam_with_init.yaml
 launch/mapping_bringup.launch.py
 launch/nav_bringup.launch.py
+launch/task_bringup.launch.py
 resource/tb4_autonav
 tb4_autonav/__init__.py
+tb4_autonav/task_combined_navigator.py
+tb4_autonav/task_navigator.py
+tb4_autonav/traffic_detector_node.py
 tb4_autonav/waypoint_navigator.py
 test/test_copyright.py
 test/test_flake8.py

@@ -1,0 +1,6 @@
+{
+  "package_name": "demo_interfaces_test",
+  "non_idl_tuples": [
+    "/home/rededge/25_ws/demo_interfaces_test:msg/TestMsg.msg"
+  ]
+}
