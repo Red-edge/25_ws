@@ -21,7 +21,8 @@ setup(
          glob('launch/*.launch.py')),
          
         # 安装配置文件到 share/tb4_autonav/config
-        ('share/' + package_name + '/config', glob('config/*.yaml')),
+        ('share/' + package_name + '/config', glob('config/*.yaml')),  
+        
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -31,10 +32,12 @@ setup(
     license='Apache-2.0',
     tests_require=['pytest'],
     entry_points={
-        # 我们目前不需要可执行脚本，后面如果要加节点可以在这里加
         'console_scripts': [
             # 'node_name = tb4_autonav.module_name:main_function',
             'waypoint_navigator = tb4_autonav.waypoint_navigator:main',
+            'task_navigator = tb4_autonav.(undertest)task_navigator:main',
+            'task_combined_navigator = tb4_autonav.(undertest)task_combined_navigator:main',
+            'traffic_detector_node = tb4_autonav.(undertest)traffic_detector_node:main',
         ],
     },
 )
