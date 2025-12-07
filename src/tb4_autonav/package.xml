@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>tb4_autonav</name>
+  <version>0.0.1</version>
+  <description>
+    TurtleBot4 semi-automatic bringup package (Python/ament_python).
+    Provides two launch files:
+    - mapping_bringup.launch.py: base + SLAM + Nav2 + RViz for mapping
+    - nav_bringup.launch.py: base + localization + Nav2 + RViz for navigation
+  </description>
+
+  <maintainer email="you@example.com">Tony</maintainer>
+  <license>Apache-2.0</license>
+
+  <!-- 关键：使用 ament_python 作为 build type -->
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- 运行依赖 -->
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>ament_index_python</exec_depend>
+
+  <exec_depend>turtlebot4_bringup</exec_depend>
+  <exec_depend>turtlebot4_navigation</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+
+  <export>
+    <!-- 告诉 colcon：这是一个 ament_python 包，不要当 CMake 包 -->
+    <build_type>ament_python</build_type>
+  </export>
+</package>

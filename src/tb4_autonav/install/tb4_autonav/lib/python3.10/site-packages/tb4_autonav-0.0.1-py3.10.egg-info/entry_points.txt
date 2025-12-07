@@ -1,0 +1,3 @@
+[console_scripts]
+waypoint_navigator = tb4_autonav.waypoint_navigator:main
+
