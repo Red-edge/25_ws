@@ -1,5 +1,0 @@
-Invoking command in '/home/rededge/25_ws/build/demo_interfaces_test': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rededge/25_ws/demo_interfaces_test -DCMAKE_INSTALL_PREFIX=/home/rededge/25_ws/install/demo_interfaces_test
-Invoked command in '/home/rededge/25_ws/build/demo_interfaces_test' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rededge/25_ws/demo_interfaces_test -DCMAKE_INSTALL_PREFIX=/home/rededge/25_ws/install/demo_interfaces_test
-Invoking command in '/home/rededge/25_ws/build/demo_interfaces_test': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rededge/25_ws/build/demo_interfaces_test -- -j24 -l24
-Invoked command in '/home/rededge/25_ws/build/demo_interfaces_test' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rededge/25_ws/build/demo_interfaces_test -- -j24 -l24
-Invoking command in '/home/rededge/25_ws/build/demo_interfaces_test': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/rededge/25_ws/build/demo_interfaces_test

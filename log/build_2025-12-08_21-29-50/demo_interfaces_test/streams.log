@@ -1,0 +1,155 @@
+[0.014s] Invoking command in '/home/tony/25_ws/build/demo_interfaces_test': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/ros2_ws/install/witmotion_ros_driver:/home/tony/ros2_ws/install/ros2_aruco:/home/tony/ros2_ws/install/interbotix_xs_modules:/home/tony/ros2_ws/install/interbotix_perception_modules:/home/tony/ros2_ws/install/interbotix_common_modules:/home/tony/ros2_ws/install/detection:/home/tony/new_ws/install/project:/home/tony/25_ws/install/tb4_autonav:/home/tony/24fall_EE211_ws/install/turtlebot4_tests:/home/tony/24fall_EE211_ws/install/turtlebot4_diagnostics:/opt/ros/humble /usr/bin/cmake --build /home/tony/25_ws/build/demo_interfaces_test -- -j8 -l8
+[0.056s] [35m[1mConsolidate compiler generated dependencies of target demo_interfaces_test__rosidl_generator_c[0m
+[0.071s] [ 12%] Built target demo_interfaces_test__rosidl_generator_c
+[0.072s] [ 12%] Built target demo_interfaces_test__cpp
+[0.089s] [ 12%] Built target ament_cmake_python_copy_demo_interfaces_test
+[0.090s] [35m[1mConsolidate compiler generated dependencies of target demo_interfaces_test__rosidl_typesupport_c[0m
+[0.099s] [35m[1mConsolidate compiler generated dependencies of target demo_interfaces_test__rosidl_typesupport_introspection_cpp[0m
+[0.099s] [35m[1mConsolidate compiler generated dependencies of target demo_interfaces_test__rosidl_typesupport_fastrtps_cpp[0m
+[0.104s] [35m[1mConsolidate compiler generated dependencies of target demo_interfaces_test__rosidl_typesupport_introspection_c[0m
+[0.108s] [35m[1mConsolidate compiler generated dependencies of target demo_interfaces_test__rosidl_typesupport_fastrtps_c[0m
+[0.110s] [35m[1mConsolidate compiler generated dependencies of target demo_interfaces_test__rosidl_typesupport_cpp[0m
+[0.121s] [ 22%] Built target demo_interfaces_test__rosidl_typesupport_c
+[0.122s] [ 32%] Built target demo_interfaces_test__rosidl_typesupport_fastrtps_cpp
+[0.130s] [ 41%] Built target demo_interfaces_test__rosidl_typesupport_introspection_cpp
+[0.137s] [ 51%] Built target demo_interfaces_test__rosidl_typesupport_introspection_c
+[0.145s] [ 61%] Built target demo_interfaces_test__rosidl_typesupport_fastrtps_c
+[0.146s] [ 70%] Built target demo_interfaces_test__rosidl_typesupport_cpp
+[0.174s] [ 70%] Built target demo_interfaces_test
+[0.198s] [ 74%] Built target demo_interfaces_test__py
+[0.210s] [35m[1mConsolidate compiler generated dependencies of target demo_interfaces_test__rosidl_generator_py[0m
+[0.229s] [ 80%] Built target demo_interfaces_test__rosidl_generator_py
+[0.252s] [35m[1mConsolidate compiler generated dependencies of target demo_interfaces_test__rosidl_typesupport_fastrtps_c__pyext[0m
+[0.260s] [35m[1mConsolidate compiler generated dependencies of target demo_interfaces_test__rosidl_typesupport_introspection_c__pyext[0m
+[0.261s] [35m[1mConsolidate compiler generated dependencies of target demo_interfaces_test__rosidl_typesupport_c__pyext[0m
+[0.282s] [ 87%] Built target demo_interfaces_test__rosidl_typesupport_fastrtps_c__pyext
+[0.284s] [ 93%] Built target demo_interfaces_test__rosidl_typesupport_introspection_c__pyext
+[0.285s] [100%] Built target demo_interfaces_test__rosidl_typesupport_c__pyext
+[0.486s] running egg_info
+[0.486s] writing demo_interfaces_test.egg-info/PKG-INFO
+[0.487s] writing dependency_links to demo_interfaces_test.egg-info/dependency_links.txt
+[0.487s] writing top-level names to demo_interfaces_test.egg-info/top_level.txt
+[0.489s] reading manifest file 'demo_interfaces_test.egg-info/SOURCES.txt'
+[0.490s] writing manifest file 'demo_interfaces_test.egg-info/SOURCES.txt'
+[0.520s] [100%] Built target ament_cmake_python_build_demo_interfaces_test_egg
+[0.531s] Invoked command in '/home/tony/25_ws/build/demo_interfaces_test' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/ros2_ws/install/witmotion_ros_driver:/home/tony/ros2_ws/install/ros2_aruco:/home/tony/ros2_ws/install/interbotix_xs_modules:/home/tony/ros2_ws/install/interbotix_perception_modules:/home/tony/ros2_ws/install/interbotix_common_modules:/home/tony/ros2_ws/install/detection:/home/tony/new_ws/install/project:/home/tony/25_ws/install/tb4_autonav:/home/tony/24fall_EE211_ws/install/turtlebot4_tests:/home/tony/24fall_EE211_ws/install/turtlebot4_diagnostics:/opt/ros/humble /usr/bin/cmake --build /home/tony/25_ws/build/demo_interfaces_test -- -j8 -l8
+[0.533s] Invoking command in '/home/tony/25_ws/build/demo_interfaces_test': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/ros2_ws/install/witmotion_ros_driver:/home/tony/ros2_ws/install/ros2_aruco:/home/tony/ros2_ws/install/interbotix_xs_modules:/home/tony/ros2_ws/install/interbotix_perception_modules:/home/tony/ros2_ws/install/interbotix_common_modules:/home/tony/ros2_ws/install/detection:/home/tony/new_ws/install/project:/home/tony/25_ws/install/tb4_autonav:/home/tony/24fall_EE211_ws/install/turtlebot4_tests:/home/tony/24fall_EE211_ws/install/turtlebot4_diagnostics:/opt/ros/humble /usr/bin/cmake --install /home/tony/25_ws/build/demo_interfaces_test
+[0.540s] -- Install configuration: ""
+[0.540s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/ament_index/resource_index/rosidl_interfaces/demo_interfaces_test
+[0.540s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test
+[0.540s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg
+[0.540s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/detail
+[0.540s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/detail/test_msg__type_support.h
+[0.540s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/detail/test_msg__functions.h
+[0.540s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/detail/test_msg__struct.h
+[0.540s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/detail/test_msg__functions.c
+[0.540s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/rosidl_generator_c__visibility_control.h
+[0.540s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/test_msg.h
+[0.540s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/environment/library_path.sh
+[0.540s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/environment/library_path.dsv
+[0.541s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/lib/libdemo_interfaces_test__rosidl_generator_c.so
+[0.541s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test
+[0.541s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg
+[0.541s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/detail
+[0.542s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/detail/test_msg__rosidl_typesupport_fastrtps_c.h
+[0.542s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[0.542s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/lib/libdemo_interfaces_test__rosidl_typesupport_fastrtps_c.so
+[0.542s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test
+[0.542s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg
+[0.542s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[0.542s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/detail
+[0.542s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/detail/test_msg__rosidl_typesupport_introspection_c.h
+[0.542s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/detail/test_msg__type_support.c
+[0.542s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/lib/libdemo_interfaces_test__rosidl_typesupport_introspection_c.so
+[0.542s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/lib/libdemo_interfaces_test__rosidl_typesupport_c.so
+[0.542s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test
+[0.542s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg
+[0.542s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/test_msg.hpp
+[0.542s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/rosidl_generator_cpp__visibility_control.hpp
+[0.542s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/detail
+[0.542s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/detail/test_msg__traits.hpp
+[0.542s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/detail/test_msg__builder.hpp
+[0.543s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/detail/test_msg__struct.hpp
+[0.543s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/detail/test_msg__type_support.hpp
+[0.543s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test
+[0.543s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg
+[0.543s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[0.543s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/detail
+[0.543s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/detail/test_msg__rosidl_typesupport_fastrtps_cpp.hpp
+[0.543s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/detail/dds_fastrtps
+[0.543s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/lib/libdemo_interfaces_test__rosidl_typesupport_fastrtps_cpp.so
+[0.543s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test
+[0.543s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg
+[0.543s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/detail
+[0.543s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/detail/test_msg__rosidl_typesupport_introspection_cpp.hpp
+[0.543s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/include/demo_interfaces_test/demo_interfaces_test/msg/detail/test_msg__type_support.cpp
+[0.544s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/lib/libdemo_interfaces_test__rosidl_typesupport_introspection_cpp.so
+[0.544s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/lib/libdemo_interfaces_test__rosidl_typesupport_cpp.so
+[0.544s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/environment/pythonpath.sh
+[0.544s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/environment/pythonpath.dsv
+[0.544s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/local/lib/python3.10/dist-packages/demo_interfaces_test-0.0.1-py3.10.egg-info
+[0.544s] -- Installing: /home/tony/25_ws/install/demo_interfaces_test/local/lib/python3.10/dist-packages/demo_interfaces_test-0.0.1-py3.10.egg-info/top_level.txt
+[0.544s] -- Installing: /home/tony/25_ws/install/demo_interfaces_test/local/lib/python3.10/dist-packages/demo_interfaces_test-0.0.1-py3.10.egg-info/dependency_links.txt
+[0.544s] -- Installing: /home/tony/25_ws/install/demo_interfaces_test/local/lib/python3.10/dist-packages/demo_interfaces_test-0.0.1-py3.10.egg-info/SOURCES.txt
+[0.544s] -- Installing: /home/tony/25_ws/install/demo_interfaces_test/local/lib/python3.10/dist-packages/demo_interfaces_test-0.0.1-py3.10.egg-info/PKG-INFO
+[0.544s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/local/lib/python3.10/dist-packages/demo_interfaces_test
+[0.544s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/local/lib/python3.10/dist-packages/demo_interfaces_test/_demo_interfaces_test_s.ep.rosidl_typesupport_fastrtps_c.c
+[0.544s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/local/lib/python3.10/dist-packages/demo_interfaces_test/__init__.py
+[0.544s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/local/lib/python3.10/dist-packages/demo_interfaces_test/demo_interfaces_test_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[0.544s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/local/lib/python3.10/dist-packages/demo_interfaces_test/_demo_interfaces_test_s.ep.rosidl_typesupport_introspection_c.c
+[0.544s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/local/lib/python3.10/dist-packages/demo_interfaces_test/libdemo_interfaces_test__rosidl_generator_py.so
+[0.544s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/local/lib/python3.10/dist-packages/demo_interfaces_test/_demo_interfaces_test_s.ep.rosidl_typesupport_c.c
+[0.544s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/local/lib/python3.10/dist-packages/demo_interfaces_test/msg
+[0.544s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/local/lib/python3.10/dist-packages/demo_interfaces_test/msg/__init__.py
+[0.545s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/local/lib/python3.10/dist-packages/demo_interfaces_test/msg/_test_msg_s.c
+[0.545s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/local/lib/python3.10/dist-packages/demo_interfaces_test/msg/_test_msg.py
+[0.545s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/local/lib/python3.10/dist-packages/demo_interfaces_test/demo_interfaces_test_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[0.545s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/local/lib/python3.10/dist-packages/demo_interfaces_test/demo_interfaces_test_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[0.587s] Listing '/home/tony/25_ws/install/demo_interfaces_test/local/lib/python3.10/dist-packages/demo_interfaces_test'...
+[0.587s] Listing '/home/tony/25_ws/install/demo_interfaces_test/local/lib/python3.10/dist-packages/demo_interfaces_test/msg'...
+[0.592s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/local/lib/python3.10/dist-packages/demo_interfaces_test/demo_interfaces_test_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[0.592s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/local/lib/python3.10/dist-packages/demo_interfaces_test/demo_interfaces_test_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[0.592s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/local/lib/python3.10/dist-packages/demo_interfaces_test/demo_interfaces_test_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[0.592s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/lib/libdemo_interfaces_test__rosidl_generator_py.so
+[0.592s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/msg/TestMsg.idl
+[0.592s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/msg/TestMsg.msg
+[0.592s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/ament_index/resource_index/package_run_dependencies/demo_interfaces_test
+[0.592s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/ament_index/resource_index/parent_prefix_path/demo_interfaces_test
+[0.592s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/environment/ament_prefix_path.sh
+[0.592s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/environment/ament_prefix_path.dsv
+[0.593s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/environment/path.sh
+[0.593s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/environment/path.dsv
+[0.593s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/local_setup.bash
+[0.593s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/local_setup.sh
+[0.593s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/local_setup.zsh
+[0.593s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/local_setup.dsv
+[0.593s] -- Installing: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/package.dsv
+[0.593s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/ament_index/resource_index/packages/demo_interfaces_test
+[0.593s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/export_demo_interfaces_test__rosidl_generator_cExport.cmake
+[0.593s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/export_demo_interfaces_test__rosidl_generator_cExport-noconfig.cmake
+[0.593s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/export_demo_interfaces_test__rosidl_typesupport_fastrtps_cExport.cmake
+[0.593s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/export_demo_interfaces_test__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[0.594s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/demo_interfaces_test__rosidl_typesupport_introspection_cExport.cmake
+[0.594s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/demo_interfaces_test__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[0.594s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/demo_interfaces_test__rosidl_typesupport_cExport.cmake
+[0.594s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/demo_interfaces_test__rosidl_typesupport_cExport-noconfig.cmake
+[0.594s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/export_demo_interfaces_test__rosidl_generator_cppExport.cmake
+[0.594s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/export_demo_interfaces_test__rosidl_typesupport_fastrtps_cppExport.cmake
+[0.594s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/export_demo_interfaces_test__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[0.594s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/demo_interfaces_test__rosidl_typesupport_introspection_cppExport.cmake
+[0.594s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/demo_interfaces_test__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[0.594s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/demo_interfaces_test__rosidl_typesupport_cppExport.cmake
+[0.594s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/demo_interfaces_test__rosidl_typesupport_cppExport-noconfig.cmake
+[0.594s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/export_demo_interfaces_test__rosidl_generator_pyExport.cmake
+[0.594s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/export_demo_interfaces_test__rosidl_generator_pyExport-noconfig.cmake
+[0.595s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/rosidl_cmake-extras.cmake
+[0.595s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.595s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/ament_cmake_export_libraries-extras.cmake
+[0.595s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/ament_cmake_export_targets-extras.cmake
+[0.595s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[0.595s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.595s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[0.595s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/demo_interfaces_testConfig.cmake
+[0.595s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/cmake/demo_interfaces_testConfig-version.cmake
+[0.595s] -- Up-to-date: /home/tony/25_ws/install/demo_interfaces_test/share/demo_interfaces_test/package.xml
+[0.600s] Invoked command in '/home/tony/25_ws/build/demo_interfaces_test' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/ros2_ws/install/witmotion_ros_driver:/home/tony/ros2_ws/install/ros2_aruco:/home/tony/ros2_ws/install/interbotix_xs_modules:/home/tony/ros2_ws/install/interbotix_perception_modules:/home/tony/ros2_ws/install/interbotix_common_modules:/home/tony/ros2_ws/install/detection:/home/tony/new_ws/install/project:/home/tony/25_ws/install/tb4_autonav:/home/tony/24fall_EE211_ws/install/turtlebot4_tests:/home/tony/24fall_EE211_ws/install/turtlebot4_diagnostics:/opt/ros/humble /usr/bin/cmake --install /home/tony/25_ws/build/demo_interfaces_test

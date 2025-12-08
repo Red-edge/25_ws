@@ -1,0 +1,27 @@
+[0.717s] Invoking command in '/home/tony/25_ws/src/tb4_autonav': PYTHONPATH=/home/tony/25_ws/build/tb4_autonav/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/tb4_autonav build --build-base /home/tony/25_ws/build/tb4_autonav/build install --record /home/tony/25_ws/build/tb4_autonav/install.log --single-version-externally-managed install_data
+[0.990s] running egg_info
+[0.990s] writing ../../build/tb4_autonav/tb4_autonav.egg-info/PKG-INFO
+[0.990s] writing dependency_links to ../../build/tb4_autonav/tb4_autonav.egg-info/dependency_links.txt
+[0.990s] writing entry points to ../../build/tb4_autonav/tb4_autonav.egg-info/entry_points.txt
+[0.990s] writing requirements to ../../build/tb4_autonav/tb4_autonav.egg-info/requires.txt
+[0.991s] writing top-level names to ../../build/tb4_autonav/tb4_autonav.egg-info/top_level.txt
+[0.993s] reading manifest file '../../build/tb4_autonav/tb4_autonav.egg-info/SOURCES.txt'
+[0.993s] writing manifest file '../../build/tb4_autonav/tb4_autonav.egg-info/SOURCES.txt'
+[0.993s] running build
+[0.993s] running build_py
+[0.994s] copying tb4_autonav/traffic_detector_node.py -> /home/tony/25_ws/build/tb4_autonav/build/lib/tb4_autonav
+[0.994s] running install
+[0.994s] running install_lib
+[0.995s] copying /home/tony/25_ws/build/tb4_autonav/build/lib/tb4_autonav/traffic_detector_node.py -> /home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav
+[0.996s] byte-compiling /home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav/traffic_detector_node.py to traffic_detector_node.cpython-310.pyc
+[0.998s] running install_data
+[0.998s] running install_egg_info
+[1.000s] removing '/home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav-0.0.1-py3.10.egg-info' (and everything under it)
+[1.000s] Copying ../../build/tb4_autonav/tb4_autonav.egg-info to /home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav-0.0.1-py3.10.egg-info
+[1.001s] running install_scripts
+[1.027s] Installing task_combined_navigator script to /home/tony/25_ws/install/tb4_autonav/lib/tb4_autonav
+[1.027s] Installing task_navigator script to /home/tony/25_ws/install/tb4_autonav/lib/tb4_autonav
+[1.027s] Installing traffic_detector_node script to /home/tony/25_ws/install/tb4_autonav/lib/tb4_autonav
+[1.027s] Installing waypoint_navigator script to /home/tony/25_ws/install/tb4_autonav/lib/tb4_autonav
+[1.027s] writing list of installed files to '/home/tony/25_ws/build/tb4_autonav/install.log'
+[1.061s] Invoked command in '/home/tony/25_ws/src/tb4_autonav' returned '0': PYTHONPATH=/home/tony/25_ws/build/tb4_autonav/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/tb4_autonav build --build-base /home/tony/25_ws/build/tb4_autonav/build install --record /home/tony/25_ws/build/tb4_autonav/install.log --single-version-externally-managed install_data

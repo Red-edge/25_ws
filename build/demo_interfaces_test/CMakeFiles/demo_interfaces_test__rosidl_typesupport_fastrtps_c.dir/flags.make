@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DRCUTILS_ENABLE_FAULT_INJECTION -DROSIDL_TYPESUPPORT_FASTRTPS_C_BUILDING_DLL_demo_interfaces_test -DROS_PACKAGE_NAME=\"demo_interfaces_test\"
 
-CXX_INCLUDES = -I/home/rededge/25_ws/build/demo_interfaces_test/rosidl_typesupport_fastrtps_c -I/home/rededge/25_ws/build/demo_interfaces_test/rosidl_generator_c -isystem /opt/ros/humble/include/fastcdr -isystem /opt/ros/humble/include/rosidl_runtime_c -isystem /opt/ros/humble/include/rcutils -isystem /opt/ros/humble/include/rosidl_typesupport_interface -isystem /opt/ros/humble/include/rosidl_runtime_cpp -isystem /opt/ros/humble/include/rosidl_typesupport_fastrtps_cpp -isystem /opt/ros/humble/include/rmw -isystem /opt/ros/humble/include/rosidl_typesupport_fastrtps_c
+CXX_INCLUDES = -I/home/tony/25_ws/build/demo_interfaces_test/rosidl_typesupport_fastrtps_c -I/home/tony/25_ws/build/demo_interfaces_test/rosidl_generator_c -isystem /opt/ros/humble/include/fastcdr -isystem /opt/ros/humble/include/rosidl_runtime_c -isystem /opt/ros/humble/include/rcutils -isystem /opt/ros/humble/include/rosidl_typesupport_interface -isystem /opt/ros/humble/include/rosidl_runtime_cpp -isystem /opt/ros/humble/include/rosidl_typesupport_fastrtps_cpp -isystem /opt/ros/humble/include/rmw -isystem /opt/ros/humble/include/rosidl_typesupport_fastrtps_c
 
 CXX_FLAGS = -fPIC -Wall -Wextra -Wpedantic -std=gnu++14
 

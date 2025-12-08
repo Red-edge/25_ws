@@ -64,9 +64,20 @@ class WaypointNavigator(Node):
 
         # 预热直线运动相关
         self.cmd_vel_pub = self.create_publisher(Twist, "cmd_vel", 10)
-        self.preloc_direction = 1.0                 # +1 前进, -1 后退
         self.preloc_linear_speed = 0.05             # 线速度（m/s），很慢
         self.preloc_distance_limit = None           # 本次预热直线的最大位移（米）
+
+        # 预热直线运动相关
+        self.cmd_vel_pub = self.create_publisher(Twist, "cmd_vel", 10)
+        # 预热阶段只允许“前进”，不再用正负方向，而是通过朝向 + 状态机控制往复
+        self.preloc_linear_speed = 0.05             # 前进线速度（m/s）
+        self.preloc_angular_speed = 0.4             # 转向角速度（rad/s）
+        self.preloc_distance_limit = None           # 本次预热直线的最大位移（米）
+
+        # 预热状态机：FORWARD（直线前进） / TURN（原地旋转 180°）
+        self.preloc_state = "FORWARD"
+        self.turn_start_yaw = None                  # 开始转向时的 yaw
+        self.turn_tolerance = math.radians(10.0)    # 允许误差 ±10°
 
         # 安全距离等参数
         self.preloc_safety_margin = 0.2             # 与障碍物预留的安全距离（米）
@@ -77,6 +88,7 @@ class WaypointNavigator(Node):
         self.last_scan: LaserScan | None = None
         self.last_odom_x: float | None = None
         self.last_odom_y: float | None = None
+        self.last_yaw: float | None = None          # 通过 odom 获取的当前 yaw
         self.preloc_leg_start_x: float | None = None
         self.preloc_leg_start_y: float | None = None
 
@@ -138,6 +150,26 @@ class WaypointNavigator(Node):
         )
 
     # ------------------------------------------------------------------
+    # 工具函数：从四元数取 yaw / 角度归一化
+    # ------------------------------------------------------------------
+    @staticmethod
+    def _quat_to_yaw(q) -> float:
+        """从 geometry_msgs/Quaternion 计算 yaw (弧度)"""
+        # ROS 默认四元数: x, y, z, w
+        siny_cosp = 2.0 * (q.w * q.z + q.x * q.y)
+        cosy_cosp = 1.0 - 2.0 * (q.y * q.y + q.z * q.z)
+        return math.atan2(siny_cosp, cosy_cosp)
+
+    @staticmethod
+    def _normalize_angle(a: float) -> float:
+        """把角度归一化到 [-pi, pi]"""
+        while a > math.pi:
+            a -= 2.0 * math.pi
+        while a < -math.pi:
+            a += 2.0 * math.pi
+        return a
+
+    # ------------------------------------------------------------------
     # LiDAR & Odom 回调
     # ------------------------------------------------------------------
     def scan_callback(self, msg: LaserScan):
@@ -149,6 +181,11 @@ class WaypointNavigator(Node):
     def odom_callback(self, msg: Odometry):
         self.last_odom_x = msg.pose.pose.position.x
         self.last_odom_y = msg.pose.pose.position.y
+
+        # 当前 yaw
+        q = msg.pose.pose.orientation
+        self.last_yaw = self._quat_to_yaw(q)
+
         # 初始化当前半程的起点
         if self.preloc_leg_start_x is None or self.preloc_leg_start_y is None:
             self.preloc_leg_start_x = self.last_odom_x
@@ -217,7 +254,13 @@ class WaypointNavigator(Node):
     # 一、预热阶段：在安全直线上前后往复
     # ------------------------------------------------------------------
     def prelocalization_motion(self):
-        """在预热阶段，以小速度在安全直线段上前后往复运动，帮助 AMCL 重定位"""
+        """
+        在预热阶段：
+          FORWARD：沿当前朝向前进，走到 preloc_distance_limit
+          TURN   ：原地旋转 180°，然后切回 FORWARD
+
+        整个过程始终 linear.x > 0，不允许后退。
+        """
         if not self.prelocalization_active:
             return
 
@@ -227,47 +270,88 @@ class WaypointNavigator(Node):
                 self.update_preloc_distance_from_scan()
             if self.preloc_distance_limit is None:
                 # 还无法估算安全距离，先不动
-                # self.get_logger().warn("Preloc: waiting for LiDAR to compute safe distance...")
                 return
 
-        # 必须要有 odom 信息
-        if self.last_odom_x is None or self.last_odom_y is None:
+        # 必须要有 odom 和 yaw
+        if (
+            self.last_odom_x is None
+            or self.last_odom_y is None
+            or self.last_yaw is None
+        ):
             return
 
         if self.preloc_leg_start_x is None or self.preloc_leg_start_y is None:
             self.preloc_leg_start_x = self.last_odom_x
             self.preloc_leg_start_y = self.last_odom_y
 
-        # 计算当前半程已经走了多少
-        dx = self.last_odom_x - self.preloc_leg_start_x
-        dy = self.last_odom_y - self.preloc_leg_start_y
-        dist = math.sqrt(dx * dx + dy * dy)
+        # ========== 状态 1：直线前进 ==========
+        if self.preloc_state == "FORWARD":
+            # 计算当前这一“腿”已经走了多少
+            dx = self.last_odom_x - self.preloc_leg_start_x
+            dy = self.last_odom_y - self.preloc_leg_start_y
+            dist = math.sqrt(dx * dx + dy * dy)
 
-        if dist >= self.preloc_distance_limit:
-            # 到达一端，反向
-            self.preloc_direction *= -1.0
-            self.preloc_leg_start_x = self.last_odom_x
-            self.preloc_leg_start_y = self.last_odom_y
-
-        # 安全检查：如果往前走且前方障碍过近，就立刻反向
-        if self.preloc_direction > 0.0 and self.last_scan is not None:
-            min_forward = self._compute_min_forward_range()
-            if (
-                min_forward is not None
-                and min_forward <= self.preloc_safety_margin
-            ):
-                self.get_logger().warn(
-                    f"[Preloc] Obstacle at {min_forward:.2f} m ahead, reversing."
+            # 如果走够了预设距离 -> 停车 + 切到 TURN 状态
+            if dist >= self.preloc_distance_limit:
+                self.get_logger().info(
+                    f"[Preloc] Forward leg reached {dist:.2f} m, start turning 180°."
                 )
-                self.preloc_direction = -1.0
+                self.stop_robot_motion()
+                self.preloc_state = "TURN"
+                self.turn_start_yaw = self.last_yaw
+                return
+
+            # 安全检查：前方障碍太近 -> 提前转向
+            if self.last_scan is not None:
+                min_forward = self._compute_min_forward_range()
+                if (
+                    min_forward is not None
+                    and min_forward <= self.preloc_safety_margin
+                ):
+                    self.get_logger().warn(
+                        f"[Preloc] Obstacle at {min_forward:.2f} m ahead, "
+                        "early start turning 180°."
+                    )
+                    self.stop_robot_motion()
+                    self.preloc_state = "TURN"
+                    self.turn_start_yaw = self.last_yaw
+                    return
+
+            # 正常直线前进（只允许正向）
+            twist = Twist()
+            twist.linear.x = self.preloc_linear_speed   # 始终 > 0
+            twist.angular.z = 0.0
+            self.cmd_vel_pub.publish(twist)
+
+        # ========== 状态 2：原地转 180° ==========
+        elif self.preloc_state == "TURN":
+            if self.turn_start_yaw is None:
+                # 第一次进来时记录起始 yaw
+                self.turn_start_yaw = self.last_yaw
+
+            # 计算已经转过的角度（归一化到 [-pi, pi]）
+            delta = self._normalize_angle(self.last_yaw - self.turn_start_yaw)
+
+            if abs(delta) >= math.pi - self.turn_tolerance:
+                # 已经差不多转了 180°，停止旋转，开始下一段直线
+                self.get_logger().info(
+                    f"[Preloc] Turn 180° done (delta={delta:.2f} rad). "
+                    "Start next forward leg."
+                )
+                self.stop_robot_motion()
+                self.preloc_state = "FORWARD"
+                self.turn_start_yaw = None
+
+                # 新的一腿从当前位置重新计距离
                 self.preloc_leg_start_x = self.last_odom_x
                 self.preloc_leg_start_y = self.last_odom_y
+                return
 
-        # 发布直线速度
-        twist = Twist()
-        twist.linear.x = self.preloc_linear_speed * self.preloc_direction
-        twist.angular.z = 0.0
-        self.cmd_vel_pub.publish(twist)
+            # 继续原地旋转
+            twist = Twist()
+            twist.linear.x = 0.0
+            twist.angular.z = self.preloc_angular_speed  # 固定一个方向转
+            self.cmd_vel_pub.publish(twist)
 
     def stop_robot_motion(self):
         """发布一个零速度，确保机器人停住"""
@@ -481,4 +565,3 @@ def main(args=None):
 
 if __name__ == "__main__":
     main()
-s

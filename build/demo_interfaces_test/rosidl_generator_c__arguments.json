@@ -1,9 +1,9 @@
 {
   "package_name": "demo_interfaces_test",
-  "output_dir": "/home/rededge/25_ws/build/demo_interfaces_test/rosidl_generator_c/demo_interfaces_test",
+  "output_dir": "/home/tony/25_ws/build/demo_interfaces_test/rosidl_generator_c/demo_interfaces_test",
   "template_dir": "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource",
   "idl_tuples": [
-    "/home/rededge/25_ws/build/demo_interfaces_test/rosidl_adapter/demo_interfaces_test:msg/TestMsg.idl"
+    "/home/tony/25_ws/build/demo_interfaces_test/rosidl_adapter/demo_interfaces_test:msg/TestMsg.idl"
   ],
   "target_dependencies": [
     "/opt/ros/humble/share/rosidl_generator_c/cmake/../../../lib/rosidl_generator_c/rosidl_generator_c",
@@ -19,6 +19,6 @@
     "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/msg__struct.h.em",
     "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/msg__type_support.h.em",
     "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/srv__type_support.h.em",
-    "/home/rededge/25_ws/build/demo_interfaces_test/rosidl_adapter/demo_interfaces_test/msg/TestMsg.idl"
+    "/home/tony/25_ws/build/demo_interfaces_test/rosidl_adapter/demo_interfaces_test/msg/TestMsg.idl"
   ]
 }

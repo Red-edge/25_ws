@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rededge/25_ws/src/tb4_autonav_interfaces
+CMAKE_SOURCE_DIR = /home/tony/25_ws/src/tb4_autonav_interfaces
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/rededge/25_ws/build/tb4_autonav_interfaces
+CMAKE_BINARY_DIR = /home/tony/25_ws/build/tb4_autonav_interfaces
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -142,9 +142,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rededge/25_ws/build/tb4_autonav_interfaces/CMakeFiles /home/rededge/25_ws/build/tb4_autonav_interfaces//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tony/25_ws/build/tb4_autonav_interfaces/CMakeFiles /home/tony/25_ws/build/tb4_autonav_interfaces//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rededge/25_ws/build/tb4_autonav_interfaces/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tony/25_ws/build/tb4_autonav_interfaces/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

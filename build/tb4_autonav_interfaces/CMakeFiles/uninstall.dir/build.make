@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rededge/25_ws/src/tb4_autonav_interfaces
+CMAKE_SOURCE_DIR = /home/tony/25_ws/src/tb4_autonav_interfaces
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/rededge/25_ws/build/tb4_autonav_interfaces
+CMAKE_BINARY_DIR = /home/tony/25_ws/build/tb4_autonav_interfaces
 
 # Utility rule file for uninstall.
 
@@ -78,6 +78,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /home/rededge/25_ws/build/tb4_autonav_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/rededge/25_ws/src/tb4_autonav_interfaces /home/rededge/25_ws/src/tb4_autonav_interfaces /home/rededge/25_ws/build/tb4_autonav_interfaces /home/rededge/25_ws/build/tb4_autonav_interfaces /home/rededge/25_ws/build/tb4_autonav_interfaces/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/tony/25_ws/build/tb4_autonav_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tony/25_ws/src/tb4_autonav_interfaces /home/tony/25_ws/src/tb4_autonav_interfaces /home/tony/25_ws/build/tb4_autonav_interfaces /home/tony/25_ws/build/tb4_autonav_interfaces /home/tony/25_ws/build/tb4_autonav_interfaces/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/uninstall.dir/depend
 

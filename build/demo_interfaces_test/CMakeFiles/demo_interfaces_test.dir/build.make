@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rededge/25_ws/demo_interfaces_test
+CMAKE_SOURCE_DIR = /home/tony/25_ws/demo_interfaces_test
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/rededge/25_ws/build/demo_interfaces_test
+CMAKE_BINARY_DIR = /home/tony/25_ws/build/demo_interfaces_test
 
 # Utility rule file for demo_interfaces_test.
 
@@ -66,7 +66,7 @@ include CMakeFiles/demo_interfaces_test.dir/compiler_depend.make
 # Include the progress variables for this target.
 include CMakeFiles/demo_interfaces_test.dir/progress.make
 
-CMakeFiles/demo_interfaces_test: /home/rededge/25_ws/demo_interfaces_test/msg/TestMsg.msg
+CMakeFiles/demo_interfaces_test: /home/tony/25_ws/demo_interfaces_test/msg/TestMsg.msg
 
 demo_interfaces_test: CMakeFiles/demo_interfaces_test
 demo_interfaces_test: CMakeFiles/demo_interfaces_test.dir/build.make
@@ -81,6 +81,6 @@ CMakeFiles/demo_interfaces_test.dir/clean:
 .PHONY : CMakeFiles/demo_interfaces_test.dir/clean
 
 CMakeFiles/demo_interfaces_test.dir/depend:
-	cd /home/rededge/25_ws/build/demo_interfaces_test && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/rededge/25_ws/demo_interfaces_test /home/rededge/25_ws/demo_interfaces_test /home/rededge/25_ws/build/demo_interfaces_test /home/rededge/25_ws/build/demo_interfaces_test /home/rededge/25_ws/build/demo_interfaces_test/CMakeFiles/demo_interfaces_test.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/tony/25_ws/build/demo_interfaces_test && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tony/25_ws/demo_interfaces_test /home/tony/25_ws/demo_interfaces_test /home/tony/25_ws/build/demo_interfaces_test /home/tony/25_ws/build/demo_interfaces_test /home/tony/25_ws/build/demo_interfaces_test/CMakeFiles/demo_interfaces_test.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/demo_interfaces_test.dir/depend
 

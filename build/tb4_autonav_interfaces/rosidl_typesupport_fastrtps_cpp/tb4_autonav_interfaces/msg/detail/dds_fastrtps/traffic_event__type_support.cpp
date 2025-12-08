@@ -93,7 +93,7 @@ cdr_deserialize(
   cdr >> ros_message.distance;
 
   return true;
-}  // NOLINT(readability/fn_size)
+}
 
 size_t
 ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_tb4_autonav_interfaces

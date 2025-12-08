@@ -1,8 +1,8 @@
-# Install script for directory: /home/rededge/25_ws/build/demo_interfaces_test/demo_interfaces_test__py
+# Install script for directory: /home/tony/25_ws/build/demo_interfaces_test/demo_interfaces_test__py
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/rededge/25_ws/install/demo_interfaces_test")
+  set(CMAKE_INSTALL_PREFIX "/home/tony/25_ws/install/demo_interfaces_test")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

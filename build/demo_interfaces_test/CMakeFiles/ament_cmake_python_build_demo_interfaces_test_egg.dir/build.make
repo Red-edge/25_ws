@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rededge/25_ws/demo_interfaces_test
+CMAKE_SOURCE_DIR = /home/tony/25_ws/demo_interfaces_test
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/rededge/25_ws/build/demo_interfaces_test
+CMAKE_BINARY_DIR = /home/tony/25_ws/build/demo_interfaces_test
 
 # Utility rule file for ament_cmake_python_build_demo_interfaces_test_egg.
 
@@ -67,7 +67,7 @@ include CMakeFiles/ament_cmake_python_build_demo_interfaces_test_egg.dir/compile
 include CMakeFiles/ament_cmake_python_build_demo_interfaces_test_egg.dir/progress.make
 
 CMakeFiles/ament_cmake_python_build_demo_interfaces_test_egg:
-	cd /home/rededge/25_ws/build/demo_interfaces_test/ament_cmake_python/demo_interfaces_test && /usr/bin/python3 setup.py egg_info
+	cd /home/tony/25_ws/build/demo_interfaces_test/ament_cmake_python/demo_interfaces_test && /usr/bin/python3 setup.py egg_info
 
 ament_cmake_python_build_demo_interfaces_test_egg: CMakeFiles/ament_cmake_python_build_demo_interfaces_test_egg
 ament_cmake_python_build_demo_interfaces_test_egg: CMakeFiles/ament_cmake_python_build_demo_interfaces_test_egg.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/ament_cmake_python_build_demo_interfaces_test_egg.dir/clean:
 .PHONY : CMakeFiles/ament_cmake_python_build_demo_interfaces_test_egg.dir/clean
 
 CMakeFiles/ament_cmake_python_build_demo_interfaces_test_egg.dir/depend:
-	cd /home/rededge/25_ws/build/demo_interfaces_test && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/rededge/25_ws/demo_interfaces_test /home/rededge/25_ws/demo_interfaces_test /home/rededge/25_ws/build/demo_interfaces_test /home/rededge/25_ws/build/demo_interfaces_test /home/rededge/25_ws/build/demo_interfaces_test/CMakeFiles/ament_cmake_python_build_demo_interfaces_test_egg.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/tony/25_ws/build/demo_interfaces_test && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tony/25_ws/demo_interfaces_test /home/tony/25_ws/demo_interfaces_test /home/tony/25_ws/build/demo_interfaces_test /home/tony/25_ws/build/demo_interfaces_test /home/tony/25_ws/build/demo_interfaces_test/CMakeFiles/ament_cmake_python_build_demo_interfaces_test_egg.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ament_cmake_python_build_demo_interfaces_test_egg.dir/depend
 

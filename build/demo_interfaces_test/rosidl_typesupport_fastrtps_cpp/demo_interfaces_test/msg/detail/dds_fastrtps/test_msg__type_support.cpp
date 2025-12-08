@@ -47,7 +47,7 @@ cdr_deserialize(
   cdr >> ros_message.data;
 
   return true;
-}  // NOLINT(readability/fn_size)
+}
 
 size_t
 ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_demo_interfaces_test
