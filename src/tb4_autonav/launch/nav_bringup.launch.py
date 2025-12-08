@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 from launch import LaunchDescription
 from launch.actions import (
     IncludeLaunchDescription,
@@ -7,17 +10,21 @@ from launch.actions import (
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 from ament_index_python.packages import get_package_share_directory
+from launch_ros.actions import Node
 import os
 
 
 def generate_launch_description():
     """
-    导航半自动 bringup：
+    导航 + 自动任务 bringup：
 
       1. 立即启动硬件：iqr_tb4_bringup/bringup.launch.py
       2. 启动 localization（带自己的 params + map）
       3. 稍后启动 Nav2（带 nav2.yaml、自身的 autostart 等）
-      4. 启动 RViz view_robot
+      4. 再启动自动导航任务：
+           - tb4_autonav/task_combined_navigator
+           - tb4_autonav/traffic_detector_node
+      5. （可选）启动 RViz view_robot
     """
 
     # ========= 基本路径 =========
@@ -75,9 +82,9 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(loca_launch_path),
         launch_arguments={
             'map': map_yaml,
-            # 注意：turtlebot4 的 localization.launch.py 一般用的是 "params" 这个名字
+            # turtlebot4_navigation 的 localization.launch.py 一般用 "params"
             'params': loca_params,
-            # 如有需要，这里也可传 use_sim_time，但名称用 localization.launch.py 自己的参数名
+            # 如有需要，这里也可传 use_sim_time
             # 'use_sim_time': 'false',
         }.items(),
     )
@@ -93,9 +100,25 @@ def generate_launch_description():
         }.items(),
     )
 
-    # ========= 4) RViz view_robot =========
+    # ========= 4) RViz view_robot（可选）=========
     view_robot = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(view_robot_launch_path)
+    )
+
+    # ========= 5) 自动任务节点（tb4_autonav）=========
+
+    task_combined_navigator = Node(
+        package='tb4_autonav',
+        executable='task_combined_navigator',
+        name='task_combined_navigator',
+        output='screen',
+    )
+
+    traffic_detector_node = Node(
+        package='tb4_autonav',
+        executable='traffic_detector_node',
+        name='traffic_detector_node',
+        output='screen',
     )
 
     # ========= 组装 LaunchDescription =========
@@ -125,12 +148,19 @@ def generate_launch_description():
         )
     )
 
-    # 4. RViz 可以和 nav2 差不多同时起
-    # ld.add_action(
-    #     TimerAction(
-    #         period=8.0,
-    #         actions=[view_robot],
-    #     )
-    # )
+    # 4. RViz 可以和 nav2 差不多同时起（你也可以注释掉）
+    ld.add_action(
+        TimerAction(
+            period=8.0,
+            actions=[view_robot],
+        )
+    )
+
+    ld.add_action(
+        TimerAction(
+            period=14.0,
+            actions=[traffic_detector_node],
+        )
+    )
 
     return ld

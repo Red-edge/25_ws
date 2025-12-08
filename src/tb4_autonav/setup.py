@@ -38,6 +38,7 @@ setup(
             'task_navigator = tb4_autonav.task_navigator:main',
             'task_combined_navigator = tb4_autonav.task_combined_navigator:main',
             'traffic_detector_node = tb4_autonav.traffic_detector_node:main',
+            'pan_tilt_sweep = tb4_autonav.pan_tilt_sweep:main',
         ],
     },
 )

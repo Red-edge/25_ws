@@ -54,7 +54,7 @@ def generate_launch_description():
 
     declare_map = DeclareLaunchArgument(
         'map',
-        default_value='/home/tony/ee211_maps/test1125.yaml',
+        default_value='/home/25_ws/map_1207.yaml',
         description='地图 yaml 路径（给 localization 用）',
     )
 
@@ -113,6 +113,13 @@ def generate_launch_description():
         name='task_combined_navigator',
         output='screen',
     )
+    
+    pan_tilt_sweep = Node(
+        package='tb4_autonav',
+        executable='pan_tilt_sweep',
+        name='pan_tilt_sweep',
+        output='screen',
+    )
 
     traffic_detector_node = Node(
         package='tb4_autonav',
@@ -135,7 +142,7 @@ def generate_launch_description():
     # 2. 稍后起 localization（给它一点时间加载 map 等）
     ld.add_action(
         TimerAction(
-            period=4.0,
+            period=6.0,
             actions=[loca],
         )
     )
@@ -143,7 +150,7 @@ def generate_launch_description():
     # 3. 再等一会儿起 Nav2（此时 localization 基本已经就绪）
     ld.add_action(
         TimerAction(
-            period=8.0,
+            period=12.0,
             actions=[nav2],
         )
     )
@@ -151,22 +158,29 @@ def generate_launch_description():
     # 4. RViz 可以和 nav2 差不多同时起（你也可以注释掉）
     ld.add_action(
         TimerAction(
-            period=8.0,
+            period=12.0,
             actions=[view_robot],
         )
     )
 
     ld.add_action(
         TimerAction(
-            period=14.0,
+            period=20.0,
             actions=[traffic_detector_node],
         )
     )
-
+    print("Bringup pan_tilt_sweep.")
     # 5. 再晚一点起自动任务（确保 nav2 action server 基本 ready）
     ld.add_action(
         TimerAction(
-            period=12.0,
+            period=30.0,
+            actions=[pan_tilt_sweep],
+        )
+    )
+    print("Bringup task_combined_navigator.")
+    ld.add_action(
+        TimerAction(
+            period=45.0,
             actions=[task_combined_navigator],
         )
     )
