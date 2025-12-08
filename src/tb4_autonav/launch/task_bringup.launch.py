@@ -121,10 +121,10 @@ def generate_launch_description():
         output='screen',
     )
 
-    traffic_detector_node = Node(
+    traffic_detector_yolo = Node(
         package='tb4_autonav',
-        executable='traffic_detector_node',
-        name='traffic_detector_node',
+        executable='traffic_detector_yolo',
+        name='traffic_detector_yolo',
         output='screen',
     )
 
@@ -166,7 +166,7 @@ def generate_launch_description():
     ld.add_action(
         TimerAction(
             period=20.0,
-            actions=[traffic_detector_node],
+            actions=[traffic_detector_yolo],
         )
     )
     print("Bringup pan_tilt_sweep.")
@@ -180,7 +180,7 @@ def generate_launch_description():
     print("Bringup task_combined_navigator.")
     ld.add_action(
         TimerAction(
-            period=45.0,
+            period=60.0,
             actions=[task_combined_navigator],
         )
     )

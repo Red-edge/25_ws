@@ -1,13 +1,20 @@
 file(REMOVE_RECURSE
   "CMakeFiles/tb4_autonav_interfaces__rosidl_generator_c.dir/rosidl_generator_c/tb4_autonav_interfaces/msg/detail/traffic_event__functions.c.o"
   "CMakeFiles/tb4_autonav_interfaces__rosidl_generator_c.dir/rosidl_generator_c/tb4_autonav_interfaces/msg/detail/traffic_event__functions.c.o.d"
+  "CMakeFiles/tb4_autonav_interfaces__rosidl_generator_c.dir/rosidl_generator_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__functions.c.o"
+  "CMakeFiles/tb4_autonav_interfaces__rosidl_generator_c.dir/rosidl_generator_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__functions.c.o.d"
   "libtb4_autonav_interfaces__rosidl_generator_c.pdb"
   "libtb4_autonav_interfaces__rosidl_generator_c.so"
   "rosidl_generator_c/tb4_autonav_interfaces/msg/detail/traffic_event__functions.c"
   "rosidl_generator_c/tb4_autonav_interfaces/msg/detail/traffic_event__functions.h"
   "rosidl_generator_c/tb4_autonav_interfaces/msg/detail/traffic_event__struct.h"
   "rosidl_generator_c/tb4_autonav_interfaces/msg/detail/traffic_event__type_support.h"
+  "rosidl_generator_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__functions.c"
+  "rosidl_generator_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__functions.h"
+  "rosidl_generator_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__struct.h"
+  "rosidl_generator_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__type_support.h"
   "rosidl_generator_c/tb4_autonav_interfaces/msg/traffic_event.h"
+  "rosidl_generator_c/tb4_autonav_interfaces/msg/yolo_target_bias.h"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,0 +1,233 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-0c6514f9cdf0c7c566cf.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				},
+				{
+					"build" : "tb4_autonav_interfaces__py",
+					"jsonFile" : "directory-tb4_autonav_interfaces__py-e85d1d53523a6c165281.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/tony/25_ws/build/tb4_autonav_interfaces/tb4_autonav_interfaces__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "tb4_autonav_interfaces",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_tb4_autonav_interfaces_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_tb4_autonav_interfaces_egg-6fba2f33e8618397797e.json",
+					"name" : "ament_cmake_python_build_tb4_autonav_interfaces_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_tb4_autonav_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_tb4_autonav_interfaces-4f13f3022244c0bf3d31.json",
+					"name" : "ament_cmake_python_copy_tb4_autonav_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tb4_autonav_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tb4_autonav_interfaces-fdf5c78688e7840638c7.json",
+					"name" : "tb4_autonav_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tb4_autonav_interfaces__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tb4_autonav_interfaces__cpp-c79df1991ae14d5a130b.json",
+					"name" : "tb4_autonav_interfaces__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "tb4_autonav_interfaces__py::@dc9ffb3faeca4ac16f17",
+					"jsonFile" : "target-tb4_autonav_interfaces__py-0c87e876d541bdcad0bb.json",
+					"name" : "tb4_autonav_interfaces__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tb4_autonav_interfaces__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tb4_autonav_interfaces__rosidl_generator_c-aca9130f97c5e438b8c5.json",
+					"name" : "tb4_autonav_interfaces__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tb4_autonav_interfaces__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tb4_autonav_interfaces__rosidl_generator_py-efe96b0d3ef4ef9d93df.json",
+					"name" : "tb4_autonav_interfaces__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tb4_autonav_interfaces__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tb4_autonav_interfaces__rosidl_typesupport_c-5fa27e8e0fae586b0e31.json",
+					"name" : "tb4_autonav_interfaces__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tb4_autonav_interfaces__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tb4_autonav_interfaces__rosidl_typesupport_c__pyext-cca2bffaf746ec4cdb91.json",
+					"name" : "tb4_autonav_interfaces__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tb4_autonav_interfaces__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tb4_autonav_interfaces__rosidl_typesupport_cpp-1417fe9e29678487f6e4.json",
+					"name" : "tb4_autonav_interfaces__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tb4_autonav_interfaces__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tb4_autonav_interfaces__rosidl_typesupport_fastrtps_c-7b670bbe16be64b9585b.json",
+					"name" : "tb4_autonav_interfaces__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tb4_autonav_interfaces__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tb4_autonav_interfaces__rosidl_typesupport_fastrtps_c__pyext-adbd8ed9cf89453bca20.json",
+					"name" : "tb4_autonav_interfaces__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp-4452c3df2682625a7161.json",
+					"name" : "tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tb4_autonav_interfaces__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tb4_autonav_interfaces__rosidl_typesupport_introspection_c-c838f7866eaa90c7d8bb.json",
+					"name" : "tb4_autonav_interfaces__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tb4_autonav_interfaces__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tb4_autonav_interfaces__rosidl_typesupport_introspection_c__pyext-60e9c57e8807c032742c.json",
+					"name" : "tb4_autonav_interfaces__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tb4_autonav_interfaces__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tb4_autonav_interfaces__rosidl_typesupport_introspection_cpp-a3e988aa85cb528336e5.json",
+					"name" : "tb4_autonav_interfaces__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tb4_autonav_interfaces_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tb4_autonav_interfaces_uninstall-137f337938d5d2b3f240.json",
+					"name" : "tb4_autonav_interfaces_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-f5108360502ebd4d7e64.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/tony/25_ws/build/tb4_autonav_interfaces",
+		"source" : "/home/tony/25_ws/src/tb4_autonav_interfaces"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

@@ -9,6 +9,7 @@ find_package(std_msgs REQUIRED)
 # 生成消息
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/TrafficEvent.msg"
+  "msg/YoloTargetBias.msg"
   DEPENDENCIES builtin_interfaces std_msgs
 )
 

@@ -1,0 +1,5 @@
+  File "/home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav/pan_tilt_sweep.py", line 35
+    self.declare_parameter("pitch_speed_deg", 11.5.0)
+                                              ^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+

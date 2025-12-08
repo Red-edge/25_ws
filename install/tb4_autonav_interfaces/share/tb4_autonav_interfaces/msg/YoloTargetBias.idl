@@ -1,0 +1,35 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from tb4_autonav_interfaces/msg/YoloTargetBias.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module tb4_autonav_interfaces {
+  module msg {
+    @verbatim (language="comment", text=
+      "tb4_autonav_interfaces/msg/YoloTargetBias.msg")
+    struct YoloTargetBias {
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "是否当前有目标（true = 有，false = 没有）")
+      boolean has_target;
+
+      @verbatim (language="comment", text=
+        "目标类型：\"RED\" / \"GREEN\" / \"STOP_SIGN\" / \"NONE\"")
+      string type;
+
+      @verbatim (language="comment", text=
+        "目标距离（米），未知时设为 -1.0")
+      float distance_m;
+
+      @verbatim (language="comment", text=
+        "像素归一化偏差：以图像中心为 0" "\n"
+        "u_norm: 水平偏移，[-1, 1]，左负右正" "\n"
+        "v_norm: 垂直偏移，[-1, 1]，上负下正")
+      float u_norm;
+
+      float v_norm;
+    };
+  };
+};

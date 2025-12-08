@@ -30,21 +30,28 @@ class WaypointNavigator(Node):
            - vision（收到 TrafficEvent 且 is_ready==True）
         2. 自检全部 OK 后，进入“重定位预热阶段”：
            - 利用 /scan + /odom 在前方安全直线上仅“前进 + 原地 180° 转向 + 前进回原点”往复运动
-           - 启动时限速为 30%
+           - 启动时限速为 30%（nav_speed_factor = 0.3）
            - 监控 /amcl_pose 的 std_xy，连续 N 次 < 阈值视为重定位完成
         3. 预热结束后：
            - 停车
-           - 恢复 100% 速度
+           - 恢复 100% nav_speed_factor
            - 正式开始导航任务
 
       【任务执行阶段】
         - 按顺序发送预设导航目标点
         - 前一目标成功到达后再发下一个
         - 订阅 /amcl_pose，基于 std 动态调节速度（慢速档/正常档）
-        - 订阅 /traffic_event，在每个 goal 内：
-            * 若首次检测到 RED/STOP_SIGN 且 distance<=1.0m，则触发一次中断：
-              - STOP_SIGN：停 3 秒后恢复（若这时无 RED）
-              - RED      ：停住，直到检测到 GREEN 才恢复
+          * nav_speed_factor = 1.0（正常）或 0.5（慢速）
+        - 订阅 /traffic_event（来自 YOLO 检测）：
+          * STOP_SIGN：
+              - 第一次检测到 → 进入 APPROACHING
+              - 当距离 <= 1.0 m 时 → 停车 3s（event_speed_factor = 0.0）
+              - 3s 后恢复（event_speed_factor = 1.0），状态标记为 DONE（整个任务只触发一次）
+          * RED：
+              - 当 RED 且距离在 (0.5, 1.5] m 时 → 停车（event_speed_factor = 0.0）
+              - 直到事件变为 GREEN 或 NONE → 恢复（event_speed_factor = 1.0）
+        - 最终下发速度限制：
+              speed_limit = nav_speed_factor * event_speed_factor （百分比 0–1）
     """
 
     def __init__(self):
@@ -52,11 +59,13 @@ class WaypointNavigator(Node):
 
         # ========== 1) 导航目标点 ==========
         self.waypoints: List[Tuple[float, float, float]] = [
-            (1.28, -14.38, -0.67),
-            (0.83, -18.44, -1.0),
-            (-2.7, -17.8, 0.75),
-            (-1.97, -15.53, 0.06),
-            (1.28, -14.38, -0.67),
+            (-2.19, -15.47, -1.38),
+            (-2.319, -16.316, -1.418),
+            (-1.996, -18.327, 0.015),
+            (0.349, -17.850, 0.116),
+            (0.985, -16.312, 1.713),
+            (-0.781, -16.476, -3.112),
+            (-2.19, -15.47, -1.38)
         ]
         self.current_index: int = 0
 
@@ -78,6 +87,12 @@ class WaypointNavigator(Node):
         self.high_count = 0
         self.low_count = 0
         self.slow_mode = False  # False=正常速度，True=慢速档（50%）
+
+        # nav_speed_factor: 来自 AMCL / 预热的速度因子（0~1）
+        self.nav_speed_factor = 1.0
+
+        # event_speed_factor: 来自 STOP_SIGN / RED 等事件（0~1）
+        self.event_speed_factor = 1.0
 
         # ========== 4) 重定位预热相关 ==========
         self.prelocalization_active = False   # 是否在预热阶段
@@ -113,10 +128,12 @@ class WaypointNavigator(Node):
         self.current_event_type = "NONE"
         self.current_event_distance = float("inf")
 
-        self.event_already_handled = False  # 每个 goal 只处理一次交通事件
-        self.stop_sign_active = False
-        self.stop_sign_end_time = 0.0
-        self.red_waiting = False
+        # STOP SIGN 状态机："IDLE" / "APPROACHING" / "HOLDING" / "DONE"
+        self.stop_sign_state = "IDLE"
+        self.stop_sign_hold_end_time = 0.0
+
+        # 红灯状态
+        self.red_light_active = False
 
         # ========== 6) ActionClient: NavigateToPose ==========
         self.nav_to_pose_client = ActionClient(
@@ -131,8 +148,8 @@ class WaypointNavigator(Node):
             "speed_limit",
             10,
         )
-        # 默认设为正常速度（预热开始时会调到 30%）
-        self.publish_speed_limit(percentage=1.0)
+        # 初始化一次速度限制
+        self.update_speed_limit()
 
         # ========== 8) 订阅 AMCL pose ==========
         qos_best_effort = QoSProfile(
@@ -254,7 +271,11 @@ class WaypointNavigator(Node):
         self.preloc_leg_start_x = None
         self.preloc_leg_start_y = None
 
-        self.publish_speed_limit(percentage=0.3)
+        # 预热阶段：nav_speed_factor=0.3，event_speed_factor保持1.0
+        self.nav_speed_factor = 0.3
+        self.event_speed_factor = 1.0
+        self.update_speed_limit()
+
         self.get_logger().info(
             "Prelocalization phase started: straight-line forward motion "
             "with 180° turns, waiting for AMCL std to stabilize..."
@@ -469,11 +490,8 @@ class WaypointNavigator(Node):
             self.navigation_active = False
             return
 
-        # 新 goal 开始时，重置交通事件标记
-        self.event_already_handled = False
-        self.stop_sign_active = False
-        self.red_waiting = False
-
+        # 每个 goal 开始，只重置“与 goal 相关”的逻辑；
+        # STOP_SIGN / RED 交通规则由全局状态机控制，不在这里清零。
         x, y, yaw = self.waypoints[self.current_index]
         goal_msg = NavigateToPose.Goal()
 
@@ -554,7 +572,9 @@ class WaypointNavigator(Node):
 
                 # 停止预热运动，恢复正常速度限制
                 self.stop_robot_motion()
-                self.publish_speed_limit(percentage=1.0)
+                self.nav_speed_factor = 1.0
+                self.slow_mode = False
+                self.update_speed_limit()
 
                 self.get_logger().info(
                     f"Prelocalization finished (std_xy < {self.init_std_threshold} "
@@ -602,72 +622,92 @@ class WaypointNavigator(Node):
     # 自适应限速
     # ------------------------------------------------------------------
     def set_slow_mode(self, enable: bool, reason: str = ""):
+        """AMCL 慢速档：只修改 nav_speed_factor"""
         if self.slow_mode == enable:
             return
         self.slow_mode = enable
         if enable:
+            self.nav_speed_factor = 0.5
             self.get_logger().warn(f"Enter SLOW mode (50% speed). Reason: {reason}")
-            self.publish_speed_limit(percentage=0.5)
         else:
+            self.nav_speed_factor = 1.0
             self.get_logger().info(f"Back to NORMAL mode (100% speed). Reason: {reason}")
-            self.publish_speed_limit(percentage=1.0)
+        self.update_speed_limit()
 
-    def publish_speed_limit(self, percentage: float):
+    def update_speed_limit(self):
+        """根据 nav_speed_factor * event_speed_factor 合成最终 SpeedLimit"""
+        final_factor = self.nav_speed_factor * self.event_speed_factor
+        final_factor = max(0.0, min(1.0, final_factor))
+
         msg = SpeedLimit()
-        msg.speed_limit = float(percentage * 100.0)  # 0–100%
+        msg.speed_limit = float(final_factor * 100.0)  # 0–100%
         msg.percentage = True
         self.speed_limit_pub.publish(msg)
 
     # ------------------------------------------------------------------
-    # 交通事件守护：处理 RED/STOP_SIGN 中断 + 恢复
+    # 交通事件守护：处理 RED/STOP_SIGN 规则 + 恢复
     # ------------------------------------------------------------------
     def navigation_guard_timer(self):
+        # 只有在导航任务进行中、系统 ready 时才处理交通规则
         if not self.navigation_active or not self.system_ready:
             return
 
         now = time.time()
+        ev = self.current_event_type
+        dist = self.current_event_distance
 
-        # ========== 1) 本 goal 第一次触发事件 ==========
-        if not self.event_already_handled:
-            ev = self.current_event_type
-            dist = self.current_event_distance
+        # ================= STOP SIGN 逻辑 =================
+        if self.stop_sign_state == "IDLE":
+            # 第一次看到 STOP_SIGN，进入 APPROACHING 状态
+            if ev == "STOP_SIGN" and 0.0 < dist < 10.0:
+                self.stop_sign_state = "APPROACHING"
+                self.get_logger().info(
+                    f"[STOP_SIGN] Detected at {dist:.2f} m → APPROACHING"
+                )
 
-            if ev in ("RED", "STOP_SIGN") and 0.0 < dist <= 1.0:
-                self.event_already_handled = True
+        if self.stop_sign_state == "APPROACHING":
+            # 当距离 <= 1.0m 时停车 3 秒
+            if ev == "STOP_SIGN" and 0.0 < dist <= 1.0:
+                self.stop_sign_state = "HOLDING"
+                self.stop_sign_hold_end_time = now + 3.0
+                self.event_speed_factor = 0.0
+                self.get_logger().info(
+                    f"[STOP_SIGN] Reached ~1m ({dist:.2f} m) → HOLD 3s"
+                )
+                self.update_speed_limit()
 
-                if ev == "STOP_SIGN":
-                    self.handle_stop_sign_start(now)
-                elif ev == "RED":
-                    self.handle_red_light_start()
+        if self.stop_sign_state == "HOLDING":
+            # 计时结束，恢复前进
+            if now >= self.stop_sign_hold_end_time:
+                self.stop_sign_state = "DONE"
+                # 若此时没有红灯生效，则恢复 event_speed_factor
+                if not self.red_light_active:
+                    self.event_speed_factor = 1.0
+                    self.get_logger().info("[STOP_SIGN] Hold finished → RESUME")
+                    self.update_speed_limit()
 
-        # ========== 2) 停止牌超时恢复 ==========
-        if self.stop_sign_active:
-            if now >= self.stop_sign_end_time:
-                if self.current_event_type == "RED":
-                    # 转入红灯等待状态
-                    if not self.red_waiting:
-                        self.handle_red_light_start()
-                else:
-                    self.get_logger().info("Stop sign hold finished → resume navigation.")
-                    self.stop_sign_active = False
-                    self.publish_speed_limit(percentage=1.0)
+        # DONE 状态下不再响应后续 STOP_SIGN（整个任务只触发一次）
 
-        # ========== 3) 红灯 → 绿灯 恢复 ==========
-        if self.red_waiting and self.current_event_type == "GREEN":
-            self.get_logger().info("GREEN detected → resume navigation from RED.")
-            self.red_waiting = False
-            self.publish_speed_limit(percentage=1.0)
+        # ================= RED / GREEN 逻辑 =================
+        # RED 且距离在 (0.5, 1.5] m 区间 → 停车
+        if ev == "RED" and 0.5 < dist <= 1.5:
+            if not self.red_light_active:
+                self.red_light_active = True
+                self.event_speed_factor = 0.0
+                self.get_logger().info(
+                    f"[RED] Detected at {dist:.2f} m → STOP and wait"
+                )
+                self.update_speed_limit()
 
-    def handle_stop_sign_start(self, now: float):
-        self.get_logger().info("STOP SIGN within 1m → full stop for 3 seconds.")
-        self.stop_sign_active = True
-        self.stop_sign_end_time = now + 3.0
-        self.publish_speed_limit(percentage=0.0)
-
-    def handle_red_light_start(self):
-        self.get_logger().info("RED light within 1m → stop and wait for GREEN.")
-        self.red_waiting = True
-        self.publish_speed_limit(percentage=0.0)
+        # 红灯解除条件：事件变为 GREEN 或 NONE（或距离无效）
+        if self.red_light_active:
+            if ev in ("GREEN", "NONE") or dist < 0.0:
+                self.red_light_active = False
+                # 若此时 STOP_SIGN 不在 HOLDING 状态，才真正恢复 event_speed_factor
+                if self.stop_sign_state != "HOLDING":
+                    self.event_speed_factor = 1.0
+                    self.get_logger().info("[RED] Cleared (GREEN/NONE) → RESUME")
+                    self.update_speed_limit()
 
 
 def main(args=None):

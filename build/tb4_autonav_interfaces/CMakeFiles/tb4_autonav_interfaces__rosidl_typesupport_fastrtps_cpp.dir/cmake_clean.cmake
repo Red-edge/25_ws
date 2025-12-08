@@ -1,10 +1,14 @@
 file(REMOVE_RECURSE
   "CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp.o"
   "CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp.o.d"
+  "CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp.o"
+  "CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp.o.d"
   "libtb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.pdb"
   "libtb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.so"
   "rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp"
+  "rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp"
   "rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/traffic_event__rosidl_typesupport_fastrtps_cpp.hpp"
+  "rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__rosidl_typesupport_fastrtps_cpp.hpp"
 )
 
 # Per-language clean rules from dependency scanning.

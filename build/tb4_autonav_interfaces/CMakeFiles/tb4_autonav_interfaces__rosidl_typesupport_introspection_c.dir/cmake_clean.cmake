@@ -1,10 +1,14 @@
 file(REMOVE_RECURSE
   "CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/tb4_autonav_interfaces/msg/detail/traffic_event__type_support.c.o"
   "CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/tb4_autonav_interfaces/msg/detail/traffic_event__type_support.c.o.d"
+  "CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__type_support.c.o"
+  "CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__type_support.c.o.d"
   "libtb4_autonav_interfaces__rosidl_typesupport_introspection_c.pdb"
   "libtb4_autonav_interfaces__rosidl_typesupport_introspection_c.so"
   "rosidl_typesupport_introspection_c/tb4_autonav_interfaces/msg/detail/traffic_event__rosidl_typesupport_introspection_c.h"
   "rosidl_typesupport_introspection_c/tb4_autonav_interfaces/msg/detail/traffic_event__type_support.c"
+  "rosidl_typesupport_introspection_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__rosidl_typesupport_introspection_c.h"
+  "rosidl_typesupport_introspection_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__type_support.c"
 )
 
 # Per-language clean rules from dependency scanning.

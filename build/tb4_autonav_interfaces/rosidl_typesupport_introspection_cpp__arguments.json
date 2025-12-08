@@ -3,7 +3,8 @@
   "output_dir": "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_typesupport_introspection_cpp/tb4_autonav_interfaces",
   "template_dir": "/opt/ros/humble/share/rosidl_typesupport_introspection_cpp/resource",
   "idl_tuples": [
-    "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_adapter/tb4_autonav_interfaces:msg/TrafficEvent.idl"
+    "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_adapter/tb4_autonav_interfaces:msg/TrafficEvent.idl",
+    "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_adapter/tb4_autonav_interfaces:msg/YoloTargetBias.idl"
   ],
   "ros_interface_dependencies": [
     "builtin_interfaces:/opt/ros/humble/share/builtin_interfaces/msg/Duration.idl",
@@ -49,6 +50,7 @@
     "/opt/ros/humble/share/rosidl_typesupport_introspection_cpp/resource/srv__rosidl_typesupport_introspection_cpp.hpp.em",
     "/opt/ros/humble/share/rosidl_typesupport_introspection_cpp/resource/srv__type_support.cpp.em",
     "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_adapter/tb4_autonav_interfaces/msg/TrafficEvent.idl",
+    "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_adapter/tb4_autonav_interfaces/msg/YoloTargetBias.idl",
     "/opt/ros/humble/share/builtin_interfaces/msg/Duration.idl",
     "/opt/ros/humble/share/builtin_interfaces/msg/Time.idl",
     "/opt/ros/humble/share/std_msgs/msg/Bool.idl",

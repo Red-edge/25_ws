@@ -6,3 +6,4 @@ tb4_autonav_interfaces.egg-info/dependency_links.txt
 tb4_autonav_interfaces.egg-info/top_level.txt
 tb4_autonav_interfaces/msg/__init__.py
 tb4_autonav_interfaces/msg/_traffic_event.py
+tb4_autonav_interfaces/msg/_yolo_target_bias.py

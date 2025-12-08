@@ -67,6 +67,7 @@ include CMakeFiles/tb4_autonav_interfaces.dir/compiler_depend.make
 include CMakeFiles/tb4_autonav_interfaces.dir/progress.make
 
 CMakeFiles/tb4_autonav_interfaces: /home/tony/25_ws/src/tb4_autonav_interfaces/msg/TrafficEvent.msg
+CMakeFiles/tb4_autonav_interfaces: /home/tony/25_ws/src/tb4_autonav_interfaces/msg/YoloTargetBias.msg
 CMakeFiles/tb4_autonav_interfaces: /opt/ros/humble/share/builtin_interfaces/msg/Duration.idl
 CMakeFiles/tb4_autonav_interfaces: /opt/ros/humble/share/builtin_interfaces/msg/Time.idl
 CMakeFiles/tb4_autonav_interfaces: /opt/ros/humble/share/std_msgs/msg/Bool.idl

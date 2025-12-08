@@ -78,6 +78,7 @@ rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/t
 rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp: /opt/ros/humble/share/rosidl_typesupport_fastrtps_cpp/resource/srv__rosidl_typesupport_fastrtps_cpp.hpp.em
 rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp: /opt/ros/humble/share/rosidl_typesupport_fastrtps_cpp/resource/srv__type_support.cpp.em
 rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp: rosidl_adapter/tb4_autonav_interfaces/msg/TrafficEvent.idl
+rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp: rosidl_adapter/tb4_autonav_interfaces/msg/YoloTargetBias.idl
 rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp: /opt/ros/humble/share/builtin_interfaces/msg/Duration.idl
 rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp: /opt/ros/humble/share/builtin_interfaces/msg/Time.idl
 rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp: /opt/ros/humble/share/std_msgs/msg/Bool.idl
@@ -116,6 +117,12 @@ rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/t
 rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/traffic_event__rosidl_typesupport_fastrtps_cpp.hpp: rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/traffic_event__rosidl_typesupport_fastrtps_cpp.hpp
 
+rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp: rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp
+
+rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__rosidl_typesupport_fastrtps_cpp.hpp: rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__rosidl_typesupport_fastrtps_cpp.hpp
+
 CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp.o: CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/flags.make
 CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp.o: rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp
 CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp.o: CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/compiler_depend.ts
@@ -130,14 +137,30 @@ CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_ty
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp -o CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp.s
 
+CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp.o: CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/flags.make
+CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp.o: rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp
+CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp.o: CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tony/25_ws/build/tb4_autonav_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp.o -MF CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp.o.d -o CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp.o -c /home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp
+
+CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp > CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp.i
+
+CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp -o CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp.s
+
 # Object files for target tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp
 tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp_OBJECTS = \
-"CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp.o"
+"CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp.o" \
+"CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp.o"
 
 # External object files for target tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp
 tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp_EXTERNAL_OBJECTS =
 
 libtb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.so: CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp.o
+libtb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.so: CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp.o
 libtb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.so: CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/build.make
 libtb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_fastrtps_cpp.so
 libtb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_cpp.so
@@ -147,7 +170,7 @@ libtb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/humble/l
 libtb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/humble/lib/librosidl_runtime_c.so
 libtb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/humble/lib/librcutils.so
 libtb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.so: CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tony/25_ws/build/tb4_autonav_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX shared library libtb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tony/25_ws/build/tb4_autonav_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX shared library libtb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -159,7 +182,9 @@ CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/clean:
 .PHONY : CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/clean
 
 CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp
+CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp
 CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/traffic_event__rosidl_typesupport_fastrtps_cpp.hpp
+CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__rosidl_typesupport_fastrtps_cpp.hpp
 	cd /home/tony/25_ws/build/tb4_autonav_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tony/25_ws/src/tb4_autonav_interfaces /home/tony/25_ws/src/tb4_autonav_interfaces /home/tony/25_ws/build/tb4_autonav_interfaces /home/tony/25_ws/build/tb4_autonav_interfaces /home/tony/25_ws/build/tb4_autonav_interfaces/CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/depend
 

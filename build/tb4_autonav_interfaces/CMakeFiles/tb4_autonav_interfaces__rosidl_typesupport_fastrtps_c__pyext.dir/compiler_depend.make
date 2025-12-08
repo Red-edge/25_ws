@@ -248,8 +248,14 @@ CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosi
   /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__struct.h \
   /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/string.h \
   /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/primitives_sequence.h \
-  rosidl_generator_c/tb4_autonav_interfaces/msg/detail/traffic_event__functions.h
+  rosidl_generator_c/tb4_autonav_interfaces/msg/detail/traffic_event__functions.h \
+  rosidl_generator_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__type_support.h \
+  rosidl_generator_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__struct.h \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__struct.h \
+  rosidl_generator_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__functions.h
 
+
+rosidl_generator_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__type_support.h:
 
 rosidl_generator_c/tb4_autonav_interfaces/msg/detail/traffic_event__functions.h:
 
@@ -264,6 +270,8 @@ rosidl_generator_c/tb4_autonav_interfaces/msg/rosidl_generator_c__visibility_con
 /usr/include/python3.10/eval.h:
 
 /usr/include/python3.10/cpython/import.h:
+
+/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__struct.h:
 
 /usr/include/python3.10/import.h:
 
@@ -286,6 +294,8 @@ rosidl_generator_c/tb4_autonav_interfaces/msg/rosidl_generator_c__visibility_con
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
+
+rosidl_generator_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__struct.h:
 
 /usr/include/x86_64-linux-gnu/bits/sched.h:
 
@@ -548,6 +558,8 @@ rosidl_generator_py/tb4_autonav_interfaces/_tb4_autonav_interfaces_s.ep.rosidl_t
 /usr/include/x86_64-linux-gnu/bits/endian.h:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
+
+rosidl_generator_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__functions.h:
 
 /usr/include/python3.10/objimpl.h:
 

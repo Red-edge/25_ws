@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "../rosidl_generator_py/tb4_autonav_interfaces/msg/__init__.py"
   "../rosidl_generator_py/tb4_autonav_interfaces/msg/_traffic_event.py"
   "../rosidl_generator_py/tb4_autonav_interfaces/msg/_traffic_event_s.c"
+  "../rosidl_generator_py/tb4_autonav_interfaces/msg/_yolo_target_bias.py"
+  "../rosidl_generator_py/tb4_autonav_interfaces/msg/_yolo_target_bias_s.c"
   "CMakeFiles/tb4_autonav_interfaces__py"
 )
 

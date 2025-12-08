@@ -17,6 +17,8 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_py/tb4_autonav_interfaces/msg/__init__.py" "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_py/tb4_autonav_interfaces/_tb4_autonav_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c"
   "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_py/tb4_autonav_interfaces/msg/_traffic_event.py" "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_py/tb4_autonav_interfaces/_tb4_autonav_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c"
   "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_py/tb4_autonav_interfaces/msg/_traffic_event_s.c" "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_py/tb4_autonav_interfaces/_tb4_autonav_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_py/tb4_autonav_interfaces/msg/_yolo_target_bias.py" "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_py/tb4_autonav_interfaces/_tb4_autonav_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_py/tb4_autonav_interfaces/msg/_yolo_target_bias_s.c" "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_py/tb4_autonav_interfaces/_tb4_autonav_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c"
   )
 
 

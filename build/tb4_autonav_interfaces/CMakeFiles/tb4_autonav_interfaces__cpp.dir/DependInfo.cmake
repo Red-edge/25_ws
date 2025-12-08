@@ -16,6 +16,11 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/traffic_event__struct.hpp" "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_cpp/tb4_autonav_interfaces/msg/traffic_event.hpp"
   "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/traffic_event__traits.hpp" "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_cpp/tb4_autonav_interfaces/msg/traffic_event.hpp"
   "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/traffic_event__type_support.hpp" "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_cpp/tb4_autonav_interfaces/msg/traffic_event.hpp"
+  "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__builder.hpp" "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_cpp/tb4_autonav_interfaces/msg/traffic_event.hpp"
+  "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__struct.hpp" "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_cpp/tb4_autonav_interfaces/msg/traffic_event.hpp"
+  "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__traits.hpp" "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_cpp/tb4_autonav_interfaces/msg/traffic_event.hpp"
+  "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__type_support.hpp" "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_cpp/tb4_autonav_interfaces/msg/traffic_event.hpp"
+  "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_cpp/tb4_autonav_interfaces/msg/yolo_target_bias.hpp" "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_cpp/tb4_autonav_interfaces/msg/traffic_event.hpp"
   )
 
 

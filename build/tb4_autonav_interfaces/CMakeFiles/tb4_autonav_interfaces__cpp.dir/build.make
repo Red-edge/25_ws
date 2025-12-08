@@ -71,6 +71,11 @@ CMakeFiles/tb4_autonav_interfaces__cpp: rosidl_generator_cpp/tb4_autonav_interfa
 CMakeFiles/tb4_autonav_interfaces__cpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/traffic_event__struct.hpp
 CMakeFiles/tb4_autonav_interfaces__cpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/traffic_event__traits.hpp
 CMakeFiles/tb4_autonav_interfaces__cpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/traffic_event__type_support.hpp
+CMakeFiles/tb4_autonav_interfaces__cpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/yolo_target_bias.hpp
+CMakeFiles/tb4_autonav_interfaces__cpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__builder.hpp
+CMakeFiles/tb4_autonav_interfaces__cpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__struct.hpp
+CMakeFiles/tb4_autonav_interfaces__cpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__traits.hpp
+CMakeFiles/tb4_autonav_interfaces__cpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__type_support.hpp
 CMakeFiles/tb4_autonav_interfaces__cpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
 
 rosidl_generator_cpp/tb4_autonav_interfaces/msg/traffic_event.hpp: /opt/ros/humble/lib/rosidl_generator_cpp/rosidl_generator_cpp
@@ -89,6 +94,7 @@ rosidl_generator_cpp/tb4_autonav_interfaces/msg/traffic_event.hpp: /opt/ros/humb
 rosidl_generator_cpp/tb4_autonav_interfaces/msg/traffic_event.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/srv__struct.hpp.em
 rosidl_generator_cpp/tb4_autonav_interfaces/msg/traffic_event.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/srv__traits.hpp.em
 rosidl_generator_cpp/tb4_autonav_interfaces/msg/traffic_event.hpp: rosidl_adapter/tb4_autonav_interfaces/msg/TrafficEvent.idl
+rosidl_generator_cpp/tb4_autonav_interfaces/msg/traffic_event.hpp: rosidl_adapter/tb4_autonav_interfaces/msg/YoloTargetBias.idl
 rosidl_generator_cpp/tb4_autonav_interfaces/msg/traffic_event.hpp: /opt/ros/humble/share/builtin_interfaces/msg/Duration.idl
 rosidl_generator_cpp/tb4_autonav_interfaces/msg/traffic_event.hpp: /opt/ros/humble/share/builtin_interfaces/msg/Time.idl
 rosidl_generator_cpp/tb4_autonav_interfaces/msg/traffic_event.hpp: /opt/ros/humble/share/std_msgs/msg/Bool.idl
@@ -136,12 +142,32 @@ rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/traffic_event__traits.hpp
 rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/traffic_event__type_support.hpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/traffic_event.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/traffic_event__type_support.hpp
 
+rosidl_generator_cpp/tb4_autonav_interfaces/msg/yolo_target_bias.hpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/traffic_event.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/tb4_autonav_interfaces/msg/yolo_target_bias.hpp
+
+rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__builder.hpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/traffic_event.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__builder.hpp
+
+rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__struct.hpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/traffic_event.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__struct.hpp
+
+rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__traits.hpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/traffic_event.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__traits.hpp
+
+rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__type_support.hpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/traffic_event.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__type_support.hpp
+
 tb4_autonav_interfaces__cpp: CMakeFiles/tb4_autonav_interfaces__cpp
 tb4_autonav_interfaces__cpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/traffic_event__builder.hpp
 tb4_autonav_interfaces__cpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/traffic_event__struct.hpp
 tb4_autonav_interfaces__cpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/traffic_event__traits.hpp
 tb4_autonav_interfaces__cpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/traffic_event__type_support.hpp
+tb4_autonav_interfaces__cpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__builder.hpp
+tb4_autonav_interfaces__cpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__struct.hpp
+tb4_autonav_interfaces__cpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__traits.hpp
+tb4_autonav_interfaces__cpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__type_support.hpp
 tb4_autonav_interfaces__cpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/traffic_event.hpp
+tb4_autonav_interfaces__cpp: rosidl_generator_cpp/tb4_autonav_interfaces/msg/yolo_target_bias.hpp
 tb4_autonav_interfaces__cpp: CMakeFiles/tb4_autonav_interfaces__cpp.dir/build.make
 .PHONY : tb4_autonav_interfaces__cpp
 

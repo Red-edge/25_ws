@@ -1,0 +1,32 @@
+running egg_info
+writing ../../build/tb4_autonav/tb4_autonav.egg-info/PKG-INFO
+writing dependency_links to ../../build/tb4_autonav/tb4_autonav.egg-info/dependency_links.txt
+writing entry points to ../../build/tb4_autonav/tb4_autonav.egg-info/entry_points.txt
+writing requirements to ../../build/tb4_autonav/tb4_autonav.egg-info/requires.txt
+writing top-level names to ../../build/tb4_autonav/tb4_autonav.egg-info/top_level.txt
+reading manifest file '../../build/tb4_autonav/tb4_autonav.egg-info/SOURCES.txt'
+writing manifest file '../../build/tb4_autonav/tb4_autonav.egg-info/SOURCES.txt'
+running build
+running build_py
+copying tb4_autonav/pan_tilt_sweep.py -> /home/tony/25_ws/build/tb4_autonav/build/lib/tb4_autonav
+running install
+running install_lib
+copying /home/tony/25_ws/build/tb4_autonav/build/lib/tb4_autonav/pan_tilt_sweep.py -> /home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav
+byte-compiling /home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav/pan_tilt_sweep.py to pan_tilt_sweep.cpython-310.pyc
+  File "/home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav/pan_tilt_sweep.py", line 35
+    self.declare_parameter("pitch_speed_deg", 11.5.0)
+                                              ^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+
+running install_data
+running install_egg_info
+removing '/home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav-0.0.1-py3.10.egg-info' (and everything under it)
+Copying ../../build/tb4_autonav/tb4_autonav.egg-info to /home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav-0.0.1-py3.10.egg-info
+running install_scripts
+Installing pan_tilt_sweep script to /home/tony/25_ws/install/tb4_autonav/lib/tb4_autonav
+Installing task_combined_navigator script to /home/tony/25_ws/install/tb4_autonav/lib/tb4_autonav
+Installing task_navigator script to /home/tony/25_ws/install/tb4_autonav/lib/tb4_autonav
+Installing traffic_detector_node script to /home/tony/25_ws/install/tb4_autonav/lib/tb4_autonav
+Installing waypoint_navigator script to /home/tony/25_ws/install/tb4_autonav/lib/tb4_autonav
+Installing yolo_detector_node script to /home/tony/25_ws/install/tb4_autonav/lib/tb4_autonav
+writing list of installed files to '/home/tony/25_ws/build/tb4_autonav/install.log'
