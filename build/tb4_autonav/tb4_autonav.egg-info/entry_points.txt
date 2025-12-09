@@ -1,4 +1,5 @@
 [console_scripts]
+image_recorder = tb4_autonav.image_recorder:main
 pan_tilt_sweep = tb4_autonav.pan_tilt_sweep:main
 task_combined_navigator = tb4_autonav.task_combined_navigator:main
 task_navigator = tb4_autonav.task_navigator:main

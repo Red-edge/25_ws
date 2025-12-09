@@ -40,7 +40,8 @@ setup(
             'traffic_detector_node = tb4_autonav.traffic_detector_node:main',
             'pan_tilt_sweep = tb4_autonav.pan_tilt_sweep:main',
             'yolo_detector_node = tb4_autonav.yolo_detector_node:main',
-            'traffic_detector_yolo = tb4_autonav.traffic_detector_yolo:main'
+            'traffic_detector_yolo = tb4_autonav.traffic_detector_yolo:main',
+            'image_recorder = tb4_autonav.image_recorder:main',
         ],
     },
 )
