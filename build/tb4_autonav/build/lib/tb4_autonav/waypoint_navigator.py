@@ -25,6 +25,15 @@ class WaypointNavigator(Node):
       - 如果 std 连续 4 次 < 0.8 -> 退出慢速档（恢复正常速度）
       - 通过发布 /speed_limit（nav2_msgs/SpeedLimit）实现限速
     """
+# map1207 point
+            # (1.28, -14.38, -0.67),
+            # (0.83, -18.44, -1),
+            # (-2.7, -17.8, 0.75),
+            # (-1.97, -15.53, 0.06),
+            # (1.28, -14.38, -0.67),
+
+
+
 
     def __init__(self):
         super().__init__("waypoint_navigator")
@@ -33,11 +42,11 @@ class WaypointNavigator(Node):
         # 这里写死一组 waypoints: (x, y, yaw) in map frame
         # 你可以根据自己的地图修改这些值
         self.waypoints: List[Tuple[float, float, float]] = [
-            (1.28, -14.38, -0.67),
-            (0.83, -18.44, -1),
-            (-2.7, -17.8, 0.75),
-            (-1.97, -15.53, 0.06),
-            (1.28, -14.38, -0.67),
+            (2.250,-19.900,-0.002),
+            (4.534, -22.262,0.001),
+            (6.382,-19.826,-0.002),
+            (4.599,- 18.400,-0.001),
+            (2.250,-19.900,-0.002),
         ]
         self.current_index: int = 0
 

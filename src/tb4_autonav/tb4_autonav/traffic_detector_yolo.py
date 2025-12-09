@@ -63,7 +63,7 @@ class TrafficDetectorYolo(Node):
         # 3) YOLO 推理频率 (Hz)，例如 5Hz -> 每 0.2s 做一次推理
         yolo_infer_rate = self.declare_parameter(
             "yolo_infer_rate",
-            10.0  # 默认 5 Hz
+            15.0  # 默认 5 Hz
         ).get_parameter_value().double_value
 
         # 防止除 0，给一个最小频率

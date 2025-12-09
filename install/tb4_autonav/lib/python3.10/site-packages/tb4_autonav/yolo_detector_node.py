@@ -30,7 +30,7 @@ class YoloDetectorNode(Node):
         # 参数：相机话题 & 模型路径 & 推理间隔
         self.declare_parameter("image_topic", "/camera/camera/color/image_raw")
         self.declare_parameter("model_path", "yolov8n.pt")
-        self.declare_parameter("inference_interval", 0.1)  # 秒，0.2s ~= 5Hz
+        self.declare_parameter("inference_interval", 0.05)  # 秒，0.2s ~= 5Hz
 
         image_topic = self.get_parameter("image_topic").value
         model_path = self.get_parameter("model_path").value

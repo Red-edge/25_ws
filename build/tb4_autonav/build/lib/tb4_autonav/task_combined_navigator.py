@@ -44,9 +44,9 @@ class WaypointNavigator(Node):
           * nav_speed_factor = 1.0（正常）或 0.5（慢速）
         - 订阅 /traffic_event（来自 YOLO 检测）：
           * STOP_SIGN：
-              - 第一次检测到 → 进入 APPROACHING
-              - 当距离 <= 1.0 m 时 → 停车 3s（event_speed_factor = 0.0）
-              - 3s 后恢复（event_speed_factor = 1.0），状态标记为 DONE（整个任务只触发一次）
+              - 收到 STOP_SIGN 时：整体速度倍率降到 0.5
+              - 当 STOP_SIGN 距离 <= 0.5 m 时：速度降到 0.0，停车 3 s
+              - 3 s 后恢复到 1.0（整个任务只触发一次）
           * RED：
               - 当 RED 且距离在 (0.5, 1.5] m 时 → 停车（event_speed_factor = 0.0）
               - 直到事件变为 GREEN 或 NONE → 恢复（event_speed_factor = 1.0）
@@ -59,13 +59,13 @@ class WaypointNavigator(Node):
 
         # ========== 1) 导航目标点 ==========
         self.waypoints: List[Tuple[float, float, float]] = [
-            (-2.19, -15.47, -1.38),
-            (-2.319, -16.316, -1.418),
-            (-1.996, -18.327, 0.015),
-            (0.349, -17.850, 0.116),
-            (0.985, -16.312, 1.713),
-            (-0.781, -16.476, -3.112),
-            (-2.19, -15.47, -1.38)
+            (2.489, -20.126, -0.671),
+            (2.351, -21.080, -0.697),
+            (4.632, -22.451, 0.861),
+            (6.352, -20.390, 0.791),
+            (5.670, -18.488, 2.399),
+            (3.838, -20.318, 0.857),
+            (2.489, -20.126, -0.671)
         ]
         self.current_index: int = 0
 
@@ -657,35 +657,43 @@ class WaypointNavigator(Node):
         dist = self.current_event_distance
 
         # ================= STOP SIGN 逻辑 =================
+        # 需求：
+        #  1. 一旦看到 STOP_SIGN → 速度倍率降到 0.5（只触发一次，且小于红灯时的 0）
+        #  2. 当 STOP_SIGN 距离 <= 0.5 m → 完全停止 3 s（event_speed_factor = 0.0）
+        #  3. 3 s 后恢复为 1.0，且本次任务内不再触发 STOP_SIGN 逻辑
+
         if self.stop_sign_state == "IDLE":
-            # 第一次看到 STOP_SIGN，进入 APPROACHING 状态
+            # 第一次看到 STOP_SIGN，进入 APPROACHING 状态 + 慢速 (0.5)
             if ev == "STOP_SIGN" and 0.0 < dist < 10.0:
                 self.stop_sign_state = "APPROACHING"
-                self.get_logger().info(
-                    f"[STOP_SIGN] Detected at {dist:.2f} m → APPROACHING"
-                )
+                # 只有在没有红灯控制时才把 event_speed_factor 从 1.0 降到 0.5
+                if not self.red_light_active and self.event_speed_factor > 0.5:
+                    self.event_speed_factor = 0.5
+                    self.get_logger().info(
+                        f"[STOP_SIGN] Detected at {dist:.2f} m → slow down to 0.5x"
+                    )
+                    self.update_speed_limit()
 
         if self.stop_sign_state == "APPROACHING":
-            # 当距离 <= 1.0m 时停车 3 秒
-            if ev == "STOP_SIGN" and 0.0 < dist <= 1.0:
+            # 接近阶段：一旦距离 <= 0.5 m，停车 3 s
+            if ev == "STOP_SIGN" and 0.0 < dist <= 0.5:
                 self.stop_sign_state = "HOLDING"
                 self.stop_sign_hold_end_time = now + 3.0
-                self.event_speed_factor = 0.0
+                self.event_speed_factor = 0.01
                 self.get_logger().info(
-                    f"[STOP_SIGN] Reached ~1m ({dist:.2f} m) → HOLD 3s"
+                    f"[STOP_SIGN] Reached <=0.5m ({dist:.2f} m) → STOP 3s"
                 )
                 self.update_speed_limit()
 
         if self.stop_sign_state == "HOLDING":
-            # 计时结束，恢复前进
+            # 计时结束，恢复前进，并锁定为 DONE（单次任务仅激活一次）
             if now >= self.stop_sign_hold_end_time:
                 self.stop_sign_state = "DONE"
-                # 若此时没有红灯生效，则恢复 event_speed_factor
+                # 若此时没有红灯生效，恢复 event_speed_factor = 1.0
                 if not self.red_light_active:
                     self.event_speed_factor = 1.0
-                    self.get_logger().info("[STOP_SIGN] Hold finished → RESUME")
+                    self.get_logger().info("[STOP_SIGN] Hold finished → RESUME (1.0x)")
                     self.update_speed_limit()
-
         # DONE 状态下不再响应后续 STOP_SIGN（整个任务只触发一次）
 
         # ================= RED / GREEN 逻辑 =================
@@ -705,10 +713,20 @@ class WaypointNavigator(Node):
                 self.red_light_active = False
                 # 若此时 STOP_SIGN 不在 HOLDING 状态，才真正恢复 event_speed_factor
                 if self.stop_sign_state != "HOLDING":
-                    self.event_speed_factor = 1.0
-                    self.get_logger().info("[RED] Cleared (GREEN/NONE) → RESUME")
+                    # 如果 STOP_SIGN 还在 APPPROACHING 且已触发过 0.5x，那么保持 0.5；
+                    # 否则恢复到 1.0
+                    if self.stop_sign_state == "APPROACHING":
+                        if self.event_speed_factor > 0.5:
+                            self.event_speed_factor = 0.5
+                        self.get_logger().info(
+                            "[RED] Cleared, keep STOP_SIGN slowdown (0.5x)"
+                        )
+                    else:
+                        self.event_speed_factor = 1.0
+                        self.get_logger().info("[RED] Cleared (GREEN/NONE) → RESUME")
                     self.update_speed_limit()
-
+        if now >= self.stop_sign_hold_end_time:
+            self.event_speed_factor = 0.0
 
 def main(args=None):
     rclpy.init(args=args)

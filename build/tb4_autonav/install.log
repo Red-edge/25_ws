@@ -5,7 +5,9 @@
 /home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav/traffic_detector_node.py
 /home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav/__init__.py
 /home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav/task_navigator.py
+/home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav/waypoint_navigator copy.py
 /home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav/traffic_detector_yolo.py
+/home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav/traffic_detector.py
 /home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav/__pycache__/pan_tilt_sweep.cpython-310.pyc
 /home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav/__pycache__/yolo_detector_node.cpython-310.pyc
 /home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav/__pycache__/task_combined_navigator.cpython-310.pyc
@@ -13,7 +15,9 @@
 /home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav/__pycache__/traffic_detector_node.cpython-310.pyc
 /home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav/__pycache__/__init__.cpython-310.pyc
 /home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav/__pycache__/task_navigator.cpython-310.pyc
+/home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav/__pycache__/waypoint_navigator copy.cpython-310.pyc
 /home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav/__pycache__/traffic_detector_yolo.cpython-310.pyc
+/home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav/__pycache__/traffic_detector.cpython-310.pyc
 /home/tony/25_ws/install/tb4_autonav/share/ament_index/resource_index/packages/tb4_autonav
 /home/tony/25_ws/install/tb4_autonav/share/tb4_autonav/package.xml
 /home/tony/25_ws/install/tb4_autonav/share/tb4_autonav/launch/nav_bringup.launch.py
