@@ -20,7 +20,7 @@ class ImageRecorder(Node):
         self.bridge = CvBridge()
 
         # ================== 图像保存相关参数 ==================
-        self.declare_parameter("save_dir", "/home/tony/25_ws/traffic/raw_images2")
+        self.declare_parameter("save_dir", "/home/tony/25_ws/traffic/raw_images3")
         self.declare_parameter("save_every_n_frames", 10)
 
         self.save_dir = self.get_parameter("save_dir").get_parameter_value().string_value
@@ -32,7 +32,7 @@ class ImageRecorder(Node):
         # ================== 云台姿态相关参数 ==================
         # 以正中心 (0,0) 为基准，默认：yaw=0，pitch=-25 度（向下看）
         self.declare_parameter("pan_tilt_yaw_deg", 0.0)
-        self.declare_parameter("pan_tilt_pitch_deg", 25.0)
+        self.declare_parameter("pan_tilt_pitch_deg", 20.0)
         self.declare_parameter("pan_tilt_speed_deg", 20.0)  # 速度上限 30deg/s
 
         self.pan_tilt_yaw_deg = float(self.get_parameter("pan_tilt_yaw_deg").value)

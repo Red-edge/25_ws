@@ -38,12 +38,12 @@ class PanTiltSweepController(Node):
         # 巡航角度区间（度）
         self.declare_parameter("yaw_min_deg", -10.0)
         self.declare_parameter("yaw_max_deg", 10.0)
-        self.declare_parameter("pitch_min_deg", 23.0)
-        self.declare_parameter("pitch_max_deg", 30.0)
+        self.declare_parameter("pitch_min_deg", 20.0)
+        self.declare_parameter("pitch_max_deg", 26.0)
 
         # 巡航角速度（度/秒）
         self.declare_parameter("yaw_speed_deg", 15.0)    # 最大 30 deg/s
-        self.declare_parameter("pitch_speed_deg", 8.0)
+        self.declare_parameter("pitch_speed_deg", 13.0)
 
         # 角度软区间：在距离边界 soft_zone_deg 内线性减速
         self.declare_parameter("soft_zone_deg", 0.0)
