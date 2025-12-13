@@ -1,0 +1,4 @@
+Dim traffic light
+Green traffic light
+Red traffic light
+Stop sign
