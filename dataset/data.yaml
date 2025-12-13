@@ -1,6 +1,6 @@
 path: /Users/rededge/Documents/25_ws/dataset
-train: images
-val: images
+train: train
+val: val
 names:
   0: Dim traffic light
   1: Green traffic light
