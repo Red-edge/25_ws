@@ -1,0 +1,8 @@
+path: /Users/rededge/Downloads/project-2-at-2025-12-13-07-55-3b4041c0/images
+train: images/train
+val: images/val
+names:
+  0: Dim traffic light
+  1: Green traffic light
+  2: Red traffic light
+  3: Stop sign
