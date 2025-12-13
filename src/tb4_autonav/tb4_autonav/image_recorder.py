@@ -35,7 +35,7 @@ class ImageRecorder(Node):
         # ================== 云台姿态参数 ==================
         # 以正中心 (0,0) 为基准：yaw=0, pitch= -25（向下）
         self.declare_parameter("pan_tilt_yaw_deg", 0.0)
-        self.declare_parameter("pan_tilt_pitch_deg", -25.0)
+        self.declare_parameter("pan_tilt_pitch_deg", 20.0)
         self.declare_parameter("pan_tilt_speed_deg", 20.0)  # <= 30 deg/s
 
         self.pan_tilt_yaw_deg = float(self.get_parameter("pan_tilt_yaw_deg").value)
