@@ -1,5 +1,12 @@
 from define import *
 
+from sensor_msgs.msg import Image
+from cv_bridge import CvBridge
+import cv2
+
+
+
+
 
 class Place(Node):
     def __init__(self):
@@ -44,6 +51,8 @@ class Place(Node):
         self.robot_des: mrd.ModernRoboticsDescription = getattr(mrd, 'px100')
 
         self.machine_state = "INIT"
+
+        
 
         self.gripper_pressure: float = 0.5
         self.gripper_pressure_lower_limit: int = 150
@@ -304,6 +313,8 @@ class Place(Node):
             gripper_state = self.set_single_pos(name, effort)
             time.sleep(delay)
             return gripper_state
+
+    
 
 
     def set_pressure(self, pressure: float) -> None:
@@ -623,6 +634,15 @@ class Pickup(Node):
         
         self.fb_sub = self.create_subscription(JointState, "/joint_states", self.js_cb, 10)
         self.marker_sub = self.create_subscription(PoseArray,"/aruco_poses",self.ar_cb, 10)
+
+        self.bridge = CvBridge()
+        self.image_sub = self.create_subscription(
+            Image,
+            "/camera/color/image_raw",
+            self.image_cb,
+            10
+        )
+
         self.tf_buffer = Buffer()
         self.tf_listener = TransformListener(self.tf_buffer, self)
 
@@ -659,6 +679,46 @@ class Pickup(Node):
         pass
 
 
+    def image_cb(self, msg):
+        cv_image = self.bridge.imgmsg_to_cv2(msg, "bgr8")
+
+        gray = cv2.cvtColor(cv_image, cv2.COLOR_BGR2GRAY)
+
+        aruco_dict = cv2.aruco.getPredefinedDictionary(
+            cv2.aruco.DICT_4X4_50
+        )
+        parameters = cv2.aruco.DetectorParameters()
+
+        corners, ids, _ = cv2.aruco.detectMarkers(
+            gray,
+            aruco_dict,
+            parameters=parameters
+        )
+
+        if ids is None or len(ids) == 0:
+            return
+
+        # -------- 位姿估计 --------
+        rvecs, tvecs, _ = cv2.aruco.estimatePoseSingleMarkers(
+            corners,
+            self.marker_size,
+            self.camera_matrix,
+            self.dist_coeffs,
+        )
+
+        rvec = rvecs[0]
+        tvec = tvecs[0]
+
+        # -------- 旋转 → 四元数 --------
+        R,_ = cv2.Rodrigues(rvec)
+        quat = R.from_matrix(R).as_quat()
+
+        pos = tvec.squeeze()
+
+        self.marker2camera_Matrix = self.quat2matrix(quat,pos)
+
+    
+    
     def quat2matrix(self,quat,pos):
         position = pos[:,np.newaxis]
         share_vector = np.array([0,0,0,1],dtype = float)[np.newaxis,:]

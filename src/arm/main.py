@@ -82,24 +82,24 @@ def main():
     pickup_thread.join()
 
 
-    ### 前往B点 ###
-    navigator.goToPose(PointB)
-    while not navigator.isTaskComplete():
-        feedback = navigator.getFeedback()
-        if feedback:
-            # Some navigation timeout to demo cancellation
-            if Duration.from_msg(feedback.navigation_time) > Duration(seconds=60.0):
-                navigator.cancelTask()
-    # Do something depending on the return code
-    result = navigator.getResult()
-    if result == TaskResult.SUCCEEDED:
-        print('Goal reached')
-    elif result == TaskResult.CANCELED:
-        print('Goal was canceled!')
-    elif result == TaskResult.FAILED:
-        print('Goal failed!')
-    else:
-        print('Goal has an invalid return status!')
+    # ### 前往B点 ###
+    # navigator.goToPose(PointB)
+    # while not navigator.isTaskComplete():
+    #     feedback = navigator.getFeedback()
+    #     if feedback:
+    #         # Some navigation timeout to demo cancellation
+    #         if Duration.from_msg(feedback.navigation_time) > Duration(seconds=60.0):
+    #             navigator.cancelTask()
+    # # Do something depending on the return code
+    # result = navigator.getResult()
+    # if result == TaskResult.SUCCEEDED:
+    #     print('Goal reached')
+    # elif result == TaskResult.CANCELED:
+    #     print('Goal was canceled!')
+    # elif result == TaskResult.FAILED:
+    #     print('Goal failed!')
+    # else:
+    #     print('Goal has an invalid return status!')
 
 
     place = Place()
