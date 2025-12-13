@@ -1,0 +1,25 @@
+{
+  "categories": [
+    {
+      "id": 0,
+      "name": "Dim traffic light"
+    },
+    {
+      "id": 1,
+      "name": "Green traffic light"
+    },
+    {
+      "id": 2,
+      "name": "Red traffic light"
+    },
+    {
+      "id": 3,
+      "name": "Stop sign"
+    }
+  ],
+  "info": {
+    "year": 2025,
+    "version": "1.0",
+    "contributor": "Label Studio"
+  }
+}
