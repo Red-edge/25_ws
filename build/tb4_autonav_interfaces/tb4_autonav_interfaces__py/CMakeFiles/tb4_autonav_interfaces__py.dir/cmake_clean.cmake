@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "../rosidl_generator_py/tb4_autonav_interfaces/_tb4_autonav_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c"
   "../rosidl_generator_py/tb4_autonav_interfaces/_tb4_autonav_interfaces_s.ep.rosidl_typesupport_introspection_c.c"
   "../rosidl_generator_py/tb4_autonav_interfaces/msg/__init__.py"
+  "../rosidl_generator_py/tb4_autonav_interfaces/msg/_pick_place_event.py"
+  "../rosidl_generator_py/tb4_autonav_interfaces/msg/_pick_place_event_s.c"
   "../rosidl_generator_py/tb4_autonav_interfaces/msg/_traffic_event.py"
   "../rosidl_generator_py/tb4_autonav_interfaces/msg/_traffic_event_s.c"
   "../rosidl_generator_py/tb4_autonav_interfaces/msg/_yolo_target_bias.py"

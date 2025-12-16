@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from tb4_autonav_interfaces/msg/PickPlaceEvent.msg
+// generated code does not contain a copyright notice
+
+
+module tb4_autonav_interfaces {
+  module msg {
+    @verbatim (language="comment", text=
+      "状态标志 status%2 = 0 Nav开" "\n"
+      "0: 未到达  Nav开" "\n"
+      "1: 到达 Nav关 Pick开" "\n"
+      "2: Pick结束， Nav开 Pick关" "\n"
+      "3: 放置到达， Nav关 Place开" "\n"
+      "4：放置完毕 Nav开")
+    struct PickPlaceEvent {
+      int32 status;
+    };
+  };
+};

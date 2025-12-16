@@ -34,14 +34,21 @@ setup(
     entry_points={
         'console_scripts': [
             # 'node_name = tb4_autonav.module_name:main_function',
-            'waypoint_navigator = tb4_autonav.waypoint_navigator:main',
-            'task_navigator = tb4_autonav.task_navigator:main',
-            'task_combined_navigator = tb4_autonav.task_combined_navigator:main',
-            'traffic_detector_node = tb4_autonav.traffic_detector_node:main',
+            'waypoint_navigator = tb4_autonav.waypoint_navigator:main', #纪念品，没有实际运行
+            # 'task_navigator = tb4_autonav.task_navigator:main',
+            
+            # original
+            # 'task_combined_navigator = tb4_autonav.task_combined_navigator:main',
+            'task_combined_navigator2 = tb4_autonav.task_combined_navigator2:main',
+
+            # 'traffic_detector_node = tb4_autonav.traffic_detector_node:main',
             'pan_tilt_sweep = tb4_autonav.pan_tilt_sweep:main',
             'yolo_detector_node = tb4_autonav.yolo_detector_node:main',
             'traffic_detector_yolo = tb4_autonav.traffic_detector_yolo:main',
             'image_recorder = tb4_autonav.image_recorder:main',
+            # 'detector = tb4_autonav.detector:main',
+            # 'navigator = tb4_autonav.navigator:main',
+            'pick_place_node = tb4_autonav.pick_place_node:main',
         ],
     },
 )

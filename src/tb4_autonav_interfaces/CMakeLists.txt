@@ -10,6 +10,7 @@ find_package(std_msgs REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/TrafficEvent.msg"
   "msg/YoloTargetBias.msg"
+  "msg/PickPlaceEvent.msg"
   DEPENDENCIES builtin_interfaces std_msgs
 )
 

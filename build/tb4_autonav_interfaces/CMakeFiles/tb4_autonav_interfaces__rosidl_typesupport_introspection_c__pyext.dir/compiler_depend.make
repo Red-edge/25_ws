@@ -252,8 +252,15 @@ CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_introspection_c__pyext.dir
   rosidl_generator_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__type_support.h \
   rosidl_generator_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__struct.h \
   /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__struct.h \
-  rosidl_generator_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__functions.h
+  rosidl_generator_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__functions.h \
+  rosidl_generator_c/tb4_autonav_interfaces/msg/detail/pick_place_event__type_support.h \
+  rosidl_generator_c/tb4_autonav_interfaces/msg/detail/pick_place_event__struct.h \
+  rosidl_generator_c/tb4_autonav_interfaces/msg/detail/pick_place_event__functions.h
 
+
+rosidl_generator_c/tb4_autonav_interfaces/msg/detail/pick_place_event__struct.h:
+
+rosidl_generator_c/tb4_autonav_interfaces/msg/detail/pick_place_event__type_support.h:
 
 rosidl_generator_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__type_support.h:
 
@@ -682,6 +689,8 @@ rosidl_generator_c/tb4_autonav_interfaces/msg/detail/traffic_event__type_support
 /usr/include/stdint.h:
 
 /usr/include/x86_64-linux-gnu/bits/fp-fast.h:
+
+rosidl_generator_c/tb4_autonav_interfaces/msg/detail/pick_place_event__functions.h:
 
 /usr/include/python3.10/cpython/abstract.h:
 

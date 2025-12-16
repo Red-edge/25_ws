@@ -47,12 +47,12 @@ class ArucoTest(Node):
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
         DICT_LIST = [
-            cv2.aruco.DICT_4X4_50,
-            cv2.aruco.DICT_4X4_100,
-            cv2.aruco.DICT_5X5_100,
+            # cv2.aruco.DICT_4X4_50,
+            # cv2.aruco.DICT_4X4_100,
+            # cv2.aruco.DICT_5X5_100,
             cv2.aruco.DICT_5X5_250,
-            cv2.aruco.DICT_6X6_100,
-            cv2.aruco.DICT_6X6_250,
+            # cv2.aruco.DICT_6X6_100,
+            # cv2.aruco.DICT_6X6_250,
         ]
 
         parameters = cv2.aruco.DetectorParameters()

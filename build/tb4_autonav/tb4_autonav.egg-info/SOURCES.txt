@@ -13,17 +13,23 @@ launch/mapping_bringup.launch.py
 launch/nav_bringup.launch.py
 launch/task_bringup.launch.py
 resource/tb4_autonav
+tb4_autonav/(NAN)detector.py
+tb4_autonav/(NAN)navigator.py
+tb4_autonav/(NAN)traffic_detector.py
+tb4_autonav/(NAN)traffic_detector_node.py
+tb4_autonav/(NAN)yolo_detector_node.py
 tb4_autonav/__init__.py
 tb4_autonav/image_recorder.py
 tb4_autonav/pan_tilt_sweep.py
+tb4_autonav/pick_place_node.py
 tb4_autonav/task_combined_navigator.py
+tb4_autonav/task_combined_navigator2.py
 tb4_autonav/task_navigator.py
-tb4_autonav/traffic_detector.py
-tb4_autonav/traffic_detector_node.py
 tb4_autonav/traffic_detector_yolo.py
-tb4_autonav/waypoint_navigator copy.py
+tb4_autonav/video_recorder.py
+tb4_autonav/video_recorder2.py
 tb4_autonav/waypoint_navigator.py
-tb4_autonav/yolo_detector_node.py
+tb4_autonav/yolo_detector_node_new.py
 test/test_copyright.py
 test/test_flake8.py
 test/test_pep257.py
