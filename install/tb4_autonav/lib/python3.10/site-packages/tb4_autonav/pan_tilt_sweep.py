@@ -127,7 +127,7 @@ class PanTiltSweepController(Node):
             return
 
         # ========= 退出 INHIBIT（status != 1） =========
-        if self.inhibit_active:
+        if self.inhibit_active and status != 1:
             self.inhibit_active = False
             self.mode = "SWEEP"   # 回到确定态，TRACK 由 YOLO 再触发
             self.last_bias_time = None

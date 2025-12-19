@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-# coding: utf-8
+ 
 
 from geometry_msgs.msg import Twist
 from nav2_simple_commander.robot_navigator import BasicNavigator, TaskResult  # (未使用可删)
