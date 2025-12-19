@@ -1,0 +1,5 @@
+  File "/home/tony/25_ws/install/tb4_autonav/lib/python3.10/site-packages/tb4_autonav/task_combined_navigator2.py", line 598
+    if completed_index == 2 & not self.waiting_for_pick_place:  # Pick point
+                              ^^^
+SyntaxError: invalid syntax
+

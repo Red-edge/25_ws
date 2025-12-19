@@ -7,5 +7,3 @@
 
 int32 status
 
-# float linear_velocity
-# float angular_velocity

@@ -42,10 +42,10 @@ class PickPlace(Node):
         self.wait_reported = False
         self.quit_reported = False
 
-        self.event_pub = self.create_publisher(PickPlaceEvent, "/PickPlaceEvent", 10)
-        self.event_sub = self.create_subscription(PickPlaceEvent, "/PickPlaceEvent", self.event_cb, 10)
+        self.event_pub = self.create_publisher(PickPlaceEvent, "/PickPlaceEvent_P2N", 10)
+        self.event_sub = self.create_subscription(PickPlaceEvent, "/PickPlaceEvent_N2P", self.event_cb, 10)
 
-        # ✅ 新增：心跳 timer（WAIT/QUIT 持续发消息）
+        # ✅ 心跳 timer（WAIT/QUIT 持续发消息）
         self.event_timer = self.create_timer(0.2, self._event_heartbeat_cb)  # 5Hz 可按需调
 
         # =========================
@@ -135,8 +135,8 @@ class PickPlace(Node):
         self.search_pitch = 30.0
         self.search_yaw_dir = 1.0
         self.search_pitch_dir = 1.0
-        self.search_yaw_min = -60.0
-        self.search_yaw_max = 60.0
+        self.search_yaw_min = -0.0
+        self.search_yaw_max = 0.0
         self.search_pitch_min = 18.0
         self.search_pitch_max = 40.0
         self.search_yaw_step = 6.0
@@ -155,10 +155,52 @@ class PickPlace(Node):
 
         self.marker_offset = np.array([-0.05, -0.04, 0.01])
 
-        # INIT 超时（秒）
-        self.init_timeout_sec = 6.0   # 你想多久就改多久
+        # INIT 超时（秒）（你原来已有的 INIT 专用超时，保留）
+        self.init_timeout_sec = 6.0
         self.init_start_time = None
 
+        # =========================
+        # ✅ Per-state timeout (excluding WAIT/QUIT)
+        # =========================
+        self.state_start_time = self.get_clock().now()
+
+        # 每个状态允许停留的最长时间（秒）——按需调整
+        self.state_timeout_sec = {
+            "INIT": 8.0,
+            "SEARCH": 20000.0,
+            "AIM": 15.0,
+
+            "NEXT0": 8.0,
+            "NEXT1": 8.0,
+            "NEXT2_ARM": 20.0,
+            "NEXT2_DRIVE": 10.0,
+            "NEXT2_STOP": 10.0,
+            "NEXT2_GRASP": 10.0,
+            "NEXT3_ARM": 10.0,
+            "NEXT4": 10.0,
+
+            "PLACE_HOME": 10.0,
+            "PLACE_RELEASE": 8.0,
+        }
+
+        # 超时后的“安全跳转”策略：抓取链路回 SEARCH；放置链路直接 QUIT
+        self.state_timeout_fallback = {
+            "INIT": "SEARCH",
+            "SEARCH": "AIM",
+            "AIM": "NEXT0",
+
+            "NEXT0": "NEXT1",
+            "NEXT1": "NEXT2_ARM",
+            "NEXT2_ARM": "NEXT2_DRIVE",
+            "NEXT2_DRIVE": "NEXT2_STOP",
+            "NEXT2_STOP": "NEXT2_GRASP",
+            "NEXT2_GRASP": "NEXT3_ARM",
+            "NEXT3_ARM": "NEXT4",
+            "NEXT4": "WAIT",
+
+            "PLACE_HOME": "PLACE_RELEASE",
+            "PLACE_RELEASE": "QUIT",
+        }
 
     # =========================
     # ✅ Heartbeat publisher
@@ -194,6 +236,48 @@ class PickPlace(Node):
             self.machine_state = new_state
             self._state_init = False
             self._clear_wait()
+            self.state_start_time = self._now()  # ✅ 记录进入时间
+
+    # =========================
+    # ✅ State timeout guard
+    # =========================
+    def _check_state_timeout(self) -> bool:
+        # WAIT / QUIT 不做超时处理
+        if self.machine_state in ("WAIT", "QUIT"):
+            return False
+
+        timeout = self.state_timeout_sec.get(self.machine_state, None)
+        if timeout is None:
+            return False
+
+        if self.state_start_time is None:
+            self.state_start_time = self._now()
+            return False
+
+        elapsed = (self._now() - self.state_start_time).nanoseconds * 1e-9
+        if elapsed < timeout:
+            return False
+
+        fallback = self.state_timeout_fallback.get(self.machine_state, "SEARCH")
+        self.get_logger().warn(
+            f"[TIMEOUT] state={self.machine_state} elapsed={elapsed:.1f}s >= {timeout:.1f}s -> {fallback}"
+        )
+
+        # 安全停住底盘
+        self.move_cmd.linear.x = 0.0
+        self.move_cmd.linear.y = 0.0
+        self.move_cmd.angular.z = 0.0
+        self.vel_pub.publish(self.move_cmd)
+
+        # 回 SEARCH 时，建议重置关键视觉/marker状态
+        if fallback == "SEARCH":
+            self.aruco_update = True
+            self.have_marker = False
+            self.marker2base_Matrix = np.eye(4)
+            self.marker_lost_cnt = 0
+
+        self._enter(fallback)
+        return True
 
     # =========================
     # Event callback
@@ -314,13 +398,17 @@ class PickPlace(Node):
         if self._waiting():
             return
 
+        # ✅ 通用超时保护（WAIT/QUIT 自动跳过）
+        if self._check_state_timeout():
+            return
+
         print(self.machine_state)
 
         match self.machine_state:
             case "INIT":
                 if not self._state_init:
                     # 进入 INIT 的一次性初始化
-                    self.init_start_time = self._now()  # ✅ 记时
+                    self.init_start_time = self._now()  # ✅ INIT 专用记时（保留）
 
                     self.pantil_deg_cmd.pitch = 30.0
                     self.pantil_deg_cmd.yaw = 0.0
@@ -339,15 +427,13 @@ class PickPlace(Node):
                         self._enter("AIM")
                     return
 
-                # ✅ 超时路径：到时间就强制进入下一个状态
+                # ✅ INIT 专用超时路径：到时间就强制进入下一个状态（比通用 timeout 更早）
                 if self.init_start_time is not None:
                     elapsed = (self._now() - self.init_start_time).nanoseconds * 1e-9
                     if elapsed >= self.init_timeout_sec:
                         self.get_logger().warn(f"[INIT] timeout {elapsed:.1f}s -> force enter SEARCH")
-                        # 你想去 AIM 也行：self._enter("AIM")
                         self._enter("SEARCH")
                         return
-
 
             case "SEARCH":
                 self.aruco_update = True
@@ -384,12 +470,13 @@ class PickPlace(Node):
                         self.search_pitch_dir = 1.0
 
                 self.pantil_deg_cmd.pitch = float(self.search_pitch)
-                self.pantil_deg_cmd.yaw = float(self.search_yaw)
+                # self.pantil_deg_cmd.yaw = float(self.search_yaw)
                 self.pantil_deg_cmd.speed = 12
                 self.pantil_pub.publish(self.pantil_deg_cmd)
 
             case "AIM":
                 self.aruco_update = True
+                self.release()
 
                 if (not getattr(self, "have_marker", False)) or np.array_equal(self.marker2base_Matrix, np.eye(4)):
                     self.marker_lost_cnt += 1
@@ -434,12 +521,14 @@ class PickPlace(Node):
                 return
 
             case "NEXT0":
+                self.release()
                 if self.set_group_pos([-1.0, 0.0, 0.8, -1.3]) is True:
                     self._enter("NEXT1")
                     self.marker2base_Matrix[:3, 3] += self.marker_offset
                     self.aruco_update = False
 
             case "NEXT1":
+                self.release()
                 angle = np.arctan2(self.marker2base_Matrix[1, 3], self.marker2base_Matrix[0, 3])
                 if self.set_group_pos([angle, -0.3, 0.9, -1.3]) is True:
                     self._enter("NEXT2_ARM")
@@ -477,7 +566,7 @@ class PickPlace(Node):
 
             case "NEXT2_GRASP":
                 if not self._state_init:
-                    self.grasp(0.57)
+                    self.grasp(0.65)
                     self._set_wait(1.0)
                     self._state_init = True
                     return
@@ -602,7 +691,7 @@ class PickPlace(Node):
         p_d = T_sd[0:3, 3]
 
         joint_lower = np.array([-1.5, -0.4, -1.1, -1.4])
-        joint_upper = np.array([1.5, 0.9, 0.8, -0.8])
+        joint_upper = np.array([1.5, 0.9, 0.8, -0.9])
 
         pos_tol = 0.02
 
