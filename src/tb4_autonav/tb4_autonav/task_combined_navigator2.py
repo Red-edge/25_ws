@@ -589,7 +589,7 @@ class WaypointNavigator(Node):
         self.get_logger().debug(f"Goal #{completed_index} finished with status {status}")
         self.get_logger().debug(f"Goal #{completed_index} finished with status {status}")
         self.get_logger().debug(f"Goal #{completed_index} finished with status {status}")
-        
+
         if status == 4:  # SUCCESS
             self.get_logger().info(f"Goal #{completed_index + 1} reached successfully.")
 
@@ -929,11 +929,13 @@ class WaypointNavigator(Node):
         status_str = status_map.get(msg.status, f"UNKNOWN STATUS ({msg.status})")
         self.get_logger().info(f"[PickPlace Feedback] {status_str}")
 
-        if msg.status == 2:  # Pick completed
+        if msg.status == 2 & self.current_index==2:  # Pick completed
             self.get_logger().info("Pick operation confirmed complete. Resuming navigation.")
             self.waiting_for_pick_place = False
-            # self.current_index += 1
-            self.send_next_goal()
+
+            # 收到pick 结束之后， 应该？
+            self.current_index += 1
+            self.send_next_goal() 
 
         elif msg.status == 4:  # Place completed
             self.get_logger().info("Place operation confirmed complete. Resuming navigation.")
