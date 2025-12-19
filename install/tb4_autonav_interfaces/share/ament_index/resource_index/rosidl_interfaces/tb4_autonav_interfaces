@@ -1,3 +1,5 @@
+msg/PickPlaceEvent.idl
+msg/PickPlaceEvent.msg
 msg/TrafficEvent.idl
 msg/TrafficEvent.msg
 msg/YoloTargetBias.idl

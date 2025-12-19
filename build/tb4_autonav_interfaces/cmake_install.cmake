@@ -364,11 +364,19 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/tb4_autonav_interfaces/msg" TYPE FILE FILES "/home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_adapter/tb4_autonav_interfaces/msg/PickPlaceEvent.idl")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/tb4_autonav_interfaces/msg" TYPE FILE FILES "/home/tony/25_ws/src/tb4_autonav_interfaces/msg/TrafficEvent.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/tb4_autonav_interfaces/msg" TYPE FILE FILES "/home/tony/25_ws/src/tb4_autonav_interfaces/msg/YoloTargetBias.msg")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/tb4_autonav_interfaces/msg" TYPE FILE FILES "/home/tony/25_ws/src/tb4_autonav_interfaces/msg/PickPlaceEvent.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

@@ -211,4 +211,7 @@ CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosi
  /home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__type_support.h \
  /home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__struct.h \
  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__struct.h \
- /home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__functions.h
+ /home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__functions.h \
+ /home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_c/tb4_autonav_interfaces/msg/detail/pick_place_event__type_support.h \
+ /home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_c/tb4_autonav_interfaces/msg/detail/pick_place_event__struct.h \
+ /home/tony/25_ws/build/tb4_autonav_interfaces/rosidl_generator_c/tb4_autonav_interfaces/msg/detail/pick_place_event__functions.h

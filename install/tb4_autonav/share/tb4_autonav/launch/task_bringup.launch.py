@@ -109,8 +109,10 @@ def generate_launch_description():
 
     task_combined_navigator = Node(
         package='tb4_autonav',
-        executable='task_combined_navigator',
-        name='task_combined_navigator',
+        executable='task_combined_navigator2',
+        name='task_combined_navigator2',
+        # executable='task_combined_navigator',
+        # name='task_combined_navigator',
         output='screen',
     )
     
@@ -127,6 +129,14 @@ def generate_launch_description():
         name='traffic_detector_yolo',
         output='screen',
     )
+
+    pick_place_node = Node(
+        package='tb4_autonav',
+        executable='pick_place_node',   # 对应 setup.py 里的 console_scripts
+        name='pick_place_node',
+        output='screen',
+    )
+
 
     # ========= 组装 LaunchDescription =========
     ld = LaunchDescription()
@@ -177,6 +187,17 @@ def generate_launch_description():
             actions=[pan_tilt_sweep],
         )
     )
+
+    # PickPlace：先启动，等待事件
+    print("Bringup pick_place_node.")
+    ld.add_action(
+        TimerAction(
+            period=45.0,
+            actions=[pick_place_node],
+        )
+    )
+
+
     print("Bringup task_combined_navigator.")
     ld.add_action(
         TimerAction(

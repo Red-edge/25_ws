@@ -1,0 +1,275 @@
+[0.016s] Invoking command in '/home/tony/25_ws/build/tb4_autonav_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/ros2_ws/install/witmotion_ros_driver:/home/tony/ros2_ws/install/ros2_aruco:/home/tony/ros2_ws/install/interbotix_xs_modules:/home/tony/ros2_ws/install/interbotix_perception_modules:/home/tony/ros2_ws/install/interbotix_common_modules:/home/tony/ros2_ws/install/detection:/home/tony/new_ws/install/project:/home/tony/25_ws/install/tb4_autonav:/home/tony/24fall_EE211_ws/install/turtlebot4_tests:/home/tony/24fall_EE211_ws/install/turtlebot4_diagnostics:/opt/ros/humble /usr/bin/cmake --build /home/tony/25_ws/build/tb4_autonav_interfaces -- -j8 -l8
+[0.044s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.216s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.224s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.228s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.276s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.317s] -- Found builtin_interfaces: 1.2.1 (/opt/ros/humble/share/builtin_interfaces/cmake)
+[0.339s] -- Found std_msgs: 4.2.4 (/opt/ros/humble/share/std_msgs/cmake)
+[0.644s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[0.846s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.116s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.140s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[1.162s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.163s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[1.163s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[1.212s] -- Configuring done
+[1.239s] -- Generating done
+[1.248s] -- Build files have been written to: /home/tony/25_ws/build/tb4_autonav_interfaces
+[1.269s] [  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[1.279s] [  4%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[1.291s] [  4%] Built target ament_cmake_python_copy_tb4_autonav_interfaces
+[1.655s] running egg_info
+[1.655s] writing tb4_autonav_interfaces.egg-info/PKG-INFO
+[1.655s] writing dependency_links to tb4_autonav_interfaces.egg-info/dependency_links.txt
+[1.656s] writing top-level names to tb4_autonav_interfaces.egg-info/top_level.txt
+[1.660s] reading manifest file 'tb4_autonav_interfaces.egg-info/SOURCES.txt'
+[1.660s] writing manifest file 'tb4_autonav_interfaces.egg-info/SOURCES.txt'
+[1.713s] [  4%] Built target ament_cmake_python_build_tb4_autonav_interfaces_egg
+[1.999s] [35m[1mConsolidate compiler generated dependencies of target tb4_autonav_interfaces__rosidl_generator_c[0m
+[2.000s] [  4%] Built target tb4_autonav_interfaces__cpp
+[2.023s] [  6%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[2.031s] [  8%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[2.036s] [ 10%] [32mBuilding C object CMakeFiles/tb4_autonav_interfaces__rosidl_generator_c.dir/rosidl_generator_c/tb4_autonav_interfaces/msg/detail/pick_place_event__functions.c.o[0m
+[2.036s] [ 12%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[2.038s] [ 14%] [32mBuilding C object CMakeFiles/tb4_autonav_interfaces__rosidl_generator_c.dir/rosidl_generator_c/tb4_autonav_interfaces/msg/detail/traffic_event__functions.c.o[0m
+[2.051s] [ 17%] [32mBuilding C object CMakeFiles/tb4_autonav_interfaces__rosidl_generator_c.dir/rosidl_generator_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__functions.c.o[0m
+[2.322s] [ 19%] [32m[1mLinking C shared library libtb4_autonav_interfaces__rosidl_generator_c.so[0m
+[2.403s] [ 19%] Built target tb4_autonav_interfaces__rosidl_generator_c
+[2.420s] [ 21%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[2.425s] [ 23%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[2.429s] [ 25%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[2.664s] [35m[1mConsolidate compiler generated dependencies of target tb4_autonav_interfaces__rosidl_typesupport_cpp[0m
+[2.710s] [ 27%] [32mBuilding CXX object CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/tb4_autonav_interfaces/msg/yolo_target_bias__type_support.cpp.o[0m
+[2.711s] [ 31%] [32mBuilding CXX object CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/tb4_autonav_interfaces/msg/pick_place_event__type_support.cpp.o[0m
+[2.711s] [ 31%] [32mBuilding CXX object CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/tb4_autonav_interfaces/msg/traffic_event__type_support.cpp.o[0m
+[2.793s] [35m[1mConsolidate compiler generated dependencies of target tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp[0m
+[2.821s] [ 34%] [32mBuilding CXX object CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/traffic_event__type_support.cpp.o[0m
+[2.859s] [35m[1mConsolidate compiler generated dependencies of target tb4_autonav_interfaces__rosidl_typesupport_introspection_cpp[0m
+[2.898s] [ 36%] [32mBuilding CXX object CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/tb4_autonav_interfaces/msg/detail/traffic_event__type_support.cpp.o[0m
+[3.227s] [35m[1mConsolidate compiler generated dependencies of target tb4_autonav_interfaces__rosidl_typesupport_c[0m
+[3.268s] [ 38%] [32mBuilding CXX object CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/tb4_autonav_interfaces/msg/traffic_event__type_support.cpp.o[0m
+[3.299s] [35m[1mConsolidate compiler generated dependencies of target tb4_autonav_interfaces__rosidl_typesupport_fastrtps_c[0m
+[3.361s] [ 40%] [32mBuilding CXX object CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/tb4_autonav_interfaces/msg/yolo_target_bias__type_support.cpp.o[0m
+[3.370s] [ 42%] [32mBuilding CXX object CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/tb4_autonav_interfaces/msg/detail/traffic_event__type_support_c.cpp.o[0m
+[3.394s] [35m[1mConsolidate compiler generated dependencies of target tb4_autonav_interfaces__rosidl_typesupport_introspection_c[0m
+[3.404s] [ 44%] [32mBuilding CXX object CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/yolo_target_bias__type_support.cpp.o[0m
+[3.422s] [ 46%] [32mBuilding CXX object CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tb4_autonav_interfaces/msg/detail/dds_fastrtps/pick_place_event__type_support.cpp.o[0m
+[3.426s] [ 48%] [32m[1mLinking CXX shared library libtb4_autonav_interfaces__rosidl_typesupport_cpp.so[0m
+[3.434s] [ 51%] [32mBuilding C object CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/tb4_autonav_interfaces/msg/detail/traffic_event__type_support.c.o[0m
+[3.434s] [ 53%] [32mBuilding CXX object CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/tb4_autonav_interfaces/msg/pick_place_event__type_support.cpp.o[0m
+[3.489s] [ 55%] [32m[1mLinking CXX shared library libtb4_autonav_interfaces__rosidl_typesupport_c.so[0m
+[3.524s] [ 57%] [32mBuilding C object CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__type_support.c.o[0m
+[3.555s] [ 57%] Built target tb4_autonav_interfaces__rosidl_typesupport_c
+[3.558s] [ 57%] Built target tb4_autonav_interfaces__rosidl_typesupport_cpp
+[3.574s] [ 59%] [32mBuilding CXX object CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/tb4_autonav_interfaces/msg/detail/yolo_target_bias__type_support_c.cpp.o[0m
+[3.584s] [ 61%] [32mBuilding C object CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/tb4_autonav_interfaces/msg/detail/pick_place_event__type_support.c.o[0m
+[3.609s] [ 63%] [32mBuilding CXX object CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/tb4_autonav_interfaces/msg/detail/pick_place_event__type_support.cpp.o[0m
+[3.610s] [ 65%] [32mBuilding CXX object CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/tb4_autonav_interfaces/msg/detail/pick_place_event__type_support_c.cpp.o[0m
+[3.612s] [ 68%] [32mBuilding CXX object CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/tb4_autonav_interfaces/msg/detail/yolo_target_bias__type_support.cpp.o[0m
+[3.655s] [ 70%] [32m[1mLinking C shared library libtb4_autonav_interfaces__rosidl_typesupport_introspection_c.so[0m
+[3.744s] [ 70%] Built target tb4_autonav_interfaces__rosidl_typesupport_introspection_c
+[4.144s] [ 72%] [32m[1mLinking CXX shared library libtb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[4.156s] [ 74%] [32m[1mLinking CXX shared library libtb4_autonav_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[4.247s] [ 74%] Built target tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp
+[4.270s] [ 74%] Built target tb4_autonav_interfaces__rosidl_typesupport_fastrtps_c
+[4.287s] [ 76%] [32m[1mLinking CXX shared library libtb4_autonav_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[4.354s] [ 76%] Built target tb4_autonav_interfaces__rosidl_typesupport_introspection_cpp
+[4.379s] [ 76%] Built target tb4_autonav_interfaces
+[4.404s] [ 78%] [34m[1mGenerating Python code for ROS interfaces[0m
+[5.150s] [ 78%] Built target tb4_autonav_interfaces__py
+[5.162s] [35m[1mConsolidate compiler generated dependencies of target tb4_autonav_interfaces__rosidl_generator_py[0m
+[5.181s] [ 82%] [32mBuilding C object CMakeFiles/tb4_autonav_interfaces__rosidl_generator_py.dir/rosidl_generator_py/tb4_autonav_interfaces/msg/_traffic_event_s.c.o[0m
+[5.181s] [ 80%] [32mBuilding C object CMakeFiles/tb4_autonav_interfaces__rosidl_generator_py.dir/rosidl_generator_py/tb4_autonav_interfaces/msg/_pick_place_event_s.c.o[0m
+[5.182s] [ 85%] [32mBuilding C object CMakeFiles/tb4_autonav_interfaces__rosidl_generator_py.dir/rosidl_generator_py/tb4_autonav_interfaces/msg/_yolo_target_bias_s.c.o[0m
+[5.336s] [ 87%] [32m[1mLinking C shared library rosidl_generator_py/tb4_autonav_interfaces/libtb4_autonav_interfaces__rosidl_generator_py.so[0m
+[5.398s] [ 87%] Built target tb4_autonav_interfaces__rosidl_generator_py
+[5.423s] [35m[1mConsolidate compiler generated dependencies of target tb4_autonav_interfaces__rosidl_typesupport_fastrtps_c__pyext[0m
+[5.424s] [35m[1mConsolidate compiler generated dependencies of target tb4_autonav_interfaces__rosidl_typesupport_c__pyext[0m
+[5.435s] [35m[1mConsolidate compiler generated dependencies of target tb4_autonav_interfaces__rosidl_typesupport_introspection_c__pyext[0m
+[5.455s] [ 91%] [32mBuilding C object CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/tb4_autonav_interfaces/_tb4_autonav_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[5.457s] [ 89%] [32mBuilding C object CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/tb4_autonav_interfaces/_tb4_autonav_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[5.475s] [ 93%] [32mBuilding C object CMakeFiles/tb4_autonav_interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/tb4_autonav_interfaces/_tb4_autonav_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[5.627s] [ 95%] [32m[1mLinking C shared library rosidl_generator_py/tb4_autonav_interfaces/tb4_autonav_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[5.629s] [ 97%] [32m[1mLinking C shared library rosidl_generator_py/tb4_autonav_interfaces/tb4_autonav_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[5.640s] [100%] [32m[1mLinking C shared library rosidl_generator_py/tb4_autonav_interfaces/tb4_autonav_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[5.687s] [100%] Built target tb4_autonav_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[5.701s] [100%] Built target tb4_autonav_interfaces__rosidl_typesupport_c__pyext
+[5.713s] [100%] Built target tb4_autonav_interfaces__rosidl_typesupport_introspection_c__pyext
+[5.735s] Invoked command in '/home/tony/25_ws/build/tb4_autonav_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/ros2_ws/install/witmotion_ros_driver:/home/tony/ros2_ws/install/ros2_aruco:/home/tony/ros2_ws/install/interbotix_xs_modules:/home/tony/ros2_ws/install/interbotix_perception_modules:/home/tony/ros2_ws/install/interbotix_common_modules:/home/tony/ros2_ws/install/detection:/home/tony/new_ws/install/project:/home/tony/25_ws/install/tb4_autonav:/home/tony/24fall_EE211_ws/install/turtlebot4_tests:/home/tony/24fall_EE211_ws/install/turtlebot4_diagnostics:/opt/ros/humble /usr/bin/cmake --build /home/tony/25_ws/build/tb4_autonav_interfaces -- -j8 -l8
+[5.738s] Invoking command in '/home/tony/25_ws/build/tb4_autonav_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/ros2_ws/install/witmotion_ros_driver:/home/tony/ros2_ws/install/ros2_aruco:/home/tony/ros2_ws/install/interbotix_xs_modules:/home/tony/ros2_ws/install/interbotix_perception_modules:/home/tony/ros2_ws/install/interbotix_common_modules:/home/tony/ros2_ws/install/detection:/home/tony/new_ws/install/project:/home/tony/25_ws/install/tb4_autonav:/home/tony/24fall_EE211_ws/install/turtlebot4_tests:/home/tony/24fall_EE211_ws/install/turtlebot4_diagnostics:/opt/ros/humble /usr/bin/cmake --install /home/tony/25_ws/build/tb4_autonav_interfaces
+[5.750s] -- Install configuration: ""
+[5.750s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/share/ament_index/resource_index/rosidl_interfaces/tb4_autonav_interfaces
+[5.752s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces
+[5.752s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg
+[5.752s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/yolo_target_bias.h
+[5.752s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/traffic_event.h
+[5.752s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail
+[5.753s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/traffic_event__struct.h
+[5.753s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/yolo_target_bias__type_support.h
+[5.753s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/yolo_target_bias__functions.h
+[5.753s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/traffic_event__functions.h
+[5.753s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/yolo_target_bias__struct.h
+[5.753s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/traffic_event__type_support.h
+[5.753s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/pick_place_event__functions.c
+[5.753s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/traffic_event__functions.c
+[5.753s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/pick_place_event__type_support.h
+[5.753s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/pick_place_event__functions.h
+[5.753s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/yolo_target_bias__functions.c
+[5.753s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/pick_place_event__struct.h
+[5.753s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/rosidl_generator_c__visibility_control.h
+[5.754s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/pick_place_event.h
+[5.754s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/environment/library_path.sh
+[5.754s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/environment/library_path.dsv
+[5.754s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/lib/libtb4_autonav_interfaces__rosidl_generator_c.so
+[5.754s] -- Set runtime path of "/home/tony/25_ws/install/tb4_autonav_interfaces/lib/libtb4_autonav_interfaces__rosidl_generator_c.so" to ""
+[5.754s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces
+[5.754s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg
+[5.754s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail
+[5.754s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/pick_place_event__rosidl_typesupport_fastrtps_c.h
+[5.754s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/yolo_target_bias__rosidl_typesupport_fastrtps_c.h
+[5.754s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/traffic_event__rosidl_typesupport_fastrtps_c.h
+[5.754s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[5.755s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/lib/libtb4_autonav_interfaces__rosidl_typesupport_fastrtps_c.so
+[5.755s] -- Set runtime path of "/home/tony/25_ws/install/tb4_autonav_interfaces/lib/libtb4_autonav_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[5.755s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces
+[5.755s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg
+[5.755s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[5.755s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail
+[5.755s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/yolo_target_bias__type_support.c
+[5.755s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/yolo_target_bias__rosidl_typesupport_introspection_c.h
+[5.755s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/pick_place_event__rosidl_typesupport_introspection_c.h
+[5.755s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/traffic_event__rosidl_typesupport_introspection_c.h
+[5.755s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/pick_place_event__type_support.c
+[5.755s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/traffic_event__type_support.c
+[5.756s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/lib/libtb4_autonav_interfaces__rosidl_typesupport_introspection_c.so
+[5.760s] -- Set runtime path of "/home/tony/25_ws/install/tb4_autonav_interfaces/lib/libtb4_autonav_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[5.761s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/lib/libtb4_autonav_interfaces__rosidl_typesupport_c.so
+[5.761s] -- Set runtime path of "/home/tony/25_ws/install/tb4_autonav_interfaces/lib/libtb4_autonav_interfaces__rosidl_typesupport_c.so" to ""
+[5.761s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces
+[5.761s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg
+[5.761s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/pick_place_event.hpp
+[5.761s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+[5.761s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail
+[5.761s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/yolo_target_bias__traits.hpp
+[5.761s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/pick_place_event__type_support.hpp
+[5.761s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/yolo_target_bias__type_support.hpp
+[5.761s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/yolo_target_bias__builder.hpp
+[5.761s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/traffic_event__type_support.hpp
+[5.761s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/pick_place_event__traits.hpp
+[5.762s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/yolo_target_bias__struct.hpp
+[5.762s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/pick_place_event__builder.hpp
+[5.762s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/traffic_event__builder.hpp
+[5.762s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/traffic_event__struct.hpp
+[5.762s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/pick_place_event__struct.hpp
+[5.762s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/traffic_event__traits.hpp
+[5.762s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/yolo_target_bias.hpp
+[5.762s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/traffic_event.hpp
+[5.762s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces
+[5.762s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg
+[5.762s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[5.762s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail
+[5.762s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/traffic_event__rosidl_typesupport_fastrtps_cpp.hpp
+[5.763s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/dds_fastrtps
+[5.763s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/yolo_target_bias__rosidl_typesupport_fastrtps_cpp.hpp
+[5.763s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/pick_place_event__rosidl_typesupport_fastrtps_cpp.hpp
+[5.763s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/lib/libtb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[5.763s] -- Set runtime path of "/home/tony/25_ws/install/tb4_autonav_interfaces/lib/libtb4_autonav_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[5.763s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces
+[5.763s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg
+[5.763s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail
+[5.763s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/pick_place_event__rosidl_typesupport_introspection_cpp.hpp
+[5.763s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/traffic_event__rosidl_typesupport_introspection_cpp.hpp
+[5.763s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/traffic_event__type_support.cpp
+[5.763s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/pick_place_event__type_support.cpp
+[5.763s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/yolo_target_bias__rosidl_typesupport_introspection_cpp.hpp
+[5.764s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/include/tb4_autonav_interfaces/tb4_autonav_interfaces/msg/detail/yolo_target_bias__type_support.cpp
+[5.764s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/lib/libtb4_autonav_interfaces__rosidl_typesupport_introspection_cpp.so
+[5.765s] -- Set runtime path of "/home/tony/25_ws/install/tb4_autonav_interfaces/lib/libtb4_autonav_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[5.765s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/lib/libtb4_autonav_interfaces__rosidl_typesupport_cpp.so
+[5.765s] -- Set runtime path of "/home/tony/25_ws/install/tb4_autonav_interfaces/lib/libtb4_autonav_interfaces__rosidl_typesupport_cpp.so" to ""
+[5.765s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/environment/pythonpath.sh
+[5.765s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/environment/pythonpath.dsv
+[5.765s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces-0.0.1-py3.10.egg-info
+[5.765s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces-0.0.1-py3.10.egg-info/top_level.txt
+[5.765s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces-0.0.1-py3.10.egg-info/dependency_links.txt
+[5.766s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces-0.0.1-py3.10.egg-info/SOURCES.txt
+[5.766s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces-0.0.1-py3.10.egg-info/PKG-INFO
+[5.766s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces
+[5.766s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/tb4_autonav_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[5.766s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/libtb4_autonav_interfaces__rosidl_generator_py.so
+[5.766s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/_tb4_autonav_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[5.766s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/tb4_autonav_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[5.766s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/__init__.py
+[5.766s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/tb4_autonav_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[5.767s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/_tb4_autonav_interfaces_s.ep.rosidl_typesupport_c.c
+[5.767s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/msg
+[5.767s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/msg/_yolo_target_bias_s.c
+[5.767s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/msg/_yolo_target_bias.py
+[5.767s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/msg/_pick_place_event.py
+[5.767s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/msg/__init__.py
+[5.767s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/msg/_pick_place_event_s.c
+[5.767s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/msg/_traffic_event.py
+[5.767s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/msg/_traffic_event_s.c
+[5.767s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/_tb4_autonav_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[5.835s] Listing '/home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces'...
+[5.835s] Compiling '/home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/__init__.py'...
+[5.835s] Listing '/home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/msg'...
+[5.835s] Compiling '/home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/msg/__init__.py'...
+[5.835s] Compiling '/home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/msg/_pick_place_event.py'...
+[5.837s] Compiling '/home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/msg/_traffic_event.py'...
+[5.838s] Compiling '/home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/msg/_yolo_target_bias.py'...
+[5.841s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/tb4_autonav_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[5.841s] -- Set runtime path of "/home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/tb4_autonav_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[5.842s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/tb4_autonav_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[5.842s] -- Set runtime path of "/home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/tb4_autonav_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[5.842s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/tb4_autonav_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[5.842s] -- Set runtime path of "/home/tony/25_ws/install/tb4_autonav_interfaces/local/lib/python3.10/dist-packages/tb4_autonav_interfaces/tb4_autonav_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[5.843s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/lib/libtb4_autonav_interfaces__rosidl_generator_py.so
+[5.843s] -- Set runtime path of "/home/tony/25_ws/install/tb4_autonav_interfaces/lib/libtb4_autonav_interfaces__rosidl_generator_py.so" to ""
+[5.843s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/msg/TrafficEvent.idl
+[5.843s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/msg/YoloTargetBias.idl
+[5.844s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/msg/PickPlaceEvent.idl
+[5.844s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/msg/TrafficEvent.msg
+[5.844s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/msg/YoloTargetBias.msg
+[5.844s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/msg/PickPlaceEvent.msg
+[5.844s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/ament_index/resource_index/package_run_dependencies/tb4_autonav_interfaces
+[5.844s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/share/ament_index/resource_index/parent_prefix_path/tb4_autonav_interfaces
+[5.844s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/environment/ament_prefix_path.sh
+[5.844s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/environment/ament_prefix_path.dsv
+[5.844s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/environment/path.sh
+[5.844s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/environment/path.dsv
+[5.845s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/local_setup.bash
+[5.845s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/local_setup.sh
+[5.845s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/local_setup.zsh
+[5.845s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/local_setup.dsv
+[5.845s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/package.dsv
+[5.845s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/ament_index/resource_index/packages/tb4_autonav_interfaces
+[5.845s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/export_tb4_autonav_interfaces__rosidl_generator_cExport.cmake
+[5.845s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/export_tb4_autonav_interfaces__rosidl_generator_cExport-noconfig.cmake
+[5.845s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/export_tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[5.845s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/export_tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[5.845s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/tb4_autonav_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[5.845s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/tb4_autonav_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[5.846s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/tb4_autonav_interfaces__rosidl_typesupport_cExport.cmake
+[5.846s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/tb4_autonav_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[5.846s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/export_tb4_autonav_interfaces__rosidl_generator_cppExport.cmake
+[5.846s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/export_tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[5.846s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/export_tb4_autonav_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[5.846s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/tb4_autonav_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[5.846s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/tb4_autonav_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[5.846s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/tb4_autonav_interfaces__rosidl_typesupport_cppExport.cmake
+[5.846s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/tb4_autonav_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[5.846s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/export_tb4_autonav_interfaces__rosidl_generator_pyExport.cmake
+[5.847s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/export_tb4_autonav_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[5.847s] -- Installing: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/rosidl_cmake-extras.cmake
+[5.847s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[5.847s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[5.847s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[5.847s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[5.847s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[5.847s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[5.847s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/tb4_autonav_interfacesConfig.cmake
+[5.847s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/cmake/tb4_autonav_interfacesConfig-version.cmake
+[5.847s] -- Up-to-date: /home/tony/25_ws/install/tb4_autonav_interfaces/share/tb4_autonav_interfaces/package.xml
+[5.850s] Invoked command in '/home/tony/25_ws/build/tb4_autonav_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/ros2_ws/install/witmotion_ros_driver:/home/tony/ros2_ws/install/ros2_aruco:/home/tony/ros2_ws/install/interbotix_xs_modules:/home/tony/ros2_ws/install/interbotix_perception_modules:/home/tony/ros2_ws/install/interbotix_common_modules:/home/tony/ros2_ws/install/detection:/home/tony/new_ws/install/project:/home/tony/25_ws/install/tb4_autonav:/home/tony/24fall_EE211_ws/install/turtlebot4_tests:/home/tony/24fall_EE211_ws/install/turtlebot4_diagnostics:/opt/ros/humble /usr/bin/cmake --install /home/tony/25_ws/build/tb4_autonav_interfaces

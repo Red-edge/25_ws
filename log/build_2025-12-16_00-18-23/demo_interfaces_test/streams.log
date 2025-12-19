@@ -1,0 +1,23 @@
+[0.013s] Invoking command in '/home/tony/25_ws/build/demo_interfaces_test': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/ros2_ws/install/witmotion_ros_driver:/home/tony/ros2_ws/install/ros2_aruco:/home/tony/ros2_ws/install/interbotix_xs_modules:/home/tony/ros2_ws/install/interbotix_perception_modules:/home/tony/ros2_ws/install/interbotix_common_modules:/home/tony/ros2_ws/install/detection:/home/tony/new_ws/install/project:/home/tony/25_ws/install/tb4_autonav:/home/tony/24fall_EE211_ws/install/turtlebot4_tests:/home/tony/24fall_EE211_ws/install/turtlebot4_diagnostics:/opt/ros/humble /usr/bin/cmake --build /home/tony/25_ws/build/demo_interfaces_test -- -j8 -l8
+[0.056s] [  9%] Built target demo_interfaces_test__rosidl_generator_c
+[0.082s] [  9%] Built target ament_cmake_python_copy_demo_interfaces_test
+[0.101s] [ 19%] Built target demo_interfaces_test__rosidl_typesupport_fastrtps_c
+[0.331s] running egg_info
+[0.331s] writing demo_interfaces_test.egg-info/PKG-INFO
+[0.332s] writing dependency_links to demo_interfaces_test.egg-info/dependency_links.txt
+[0.332s] writing top-level names to demo_interfaces_test.egg-info/top_level.txt
+[0.334s] reading manifest file 'demo_interfaces_test.egg-info/SOURCES.txt'
+[0.336s] writing manifest file 'demo_interfaces_test.egg-info/SOURCES.txt'
+[0.360s] [ 19%] Built target ament_cmake_python_build_demo_interfaces_test_egg
+[0.384s] [ 29%] Built target demo_interfaces_test__rosidl_typesupport_c
+[0.408s] [ 38%] Built target demo_interfaces_test__rosidl_typesupport_introspection_c
+[0.427s] [ 41%] Built target demo_interfaces_test__cpp
+[0.446s] [ 51%] Built target demo_interfaces_test__rosidl_typesupport_fastrtps_cpp
+[0.467s] [ 61%] Built target demo_interfaces_test__rosidl_typesupport_cpp
+[0.486s] [ 70%] Built target demo_interfaces_test__rosidl_typesupport_introspection_cpp
+[0.505s] [ 70%] Built target demo_interfaces_test
+[0.525s] [ 74%] Built target demo_interfaces_test__py
+[0.547s] [ 80%] Built target demo_interfaces_test__rosidl_generator_py
+[0.566s] [ 87%] Built target demo_interfaces_test__rosidl_typesupport_fastrtps_c__pyext
+[0.586s] [ 93%] Built target demo_interfaces_test__rosidl_typesupport_c__pyext
+[0.605s] [100%] Built target demo_interfaces_test__rosidl_typesupport_introspection_c__pyext

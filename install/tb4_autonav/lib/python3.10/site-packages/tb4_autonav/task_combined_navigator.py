@@ -59,13 +59,20 @@ class WaypointNavigator(Node):
 
         # ========== 1) 导航目标点 ==========
         self.waypoints: List[Tuple[float, float, float]] = [
-            (2.489, -20.126, -0.671),
-            (2.351, -21.080, -0.697),
-            (4.632, -22.451, 0.861),
-            (6.352, -20.390, 0.791),
-            (5.670, -18.488, 2.399),
-            (3.838, -20.318, 0.857),
-            (2.489, -20.126, -0.671)
+            # (2.489, -20.126, -0.671),
+            # (2.351, -21.080, -0.697),
+            # (4.632, -22.451, 0.861),
+            # (6.352, -20.390, 0.791),
+            # (5.670, -18.488, 2.399),
+            # (3.838, -20.318, 0.857),
+            # (2.489, -20.126, -0.671)
+            (2.250,-19.900,-0.002),
+            (4.534, -22.262,0.001),
+            (6.382,-19.826,-0.002),
+            (4.599,- 18.400,-0.001),
+            (2.250,-19.900,-0.002),
+
+
         ]
         self.current_index: int = 0
 
@@ -92,7 +99,7 @@ class WaypointNavigator(Node):
         self.nav_speed_factor = 1.0
 
         # event_speed_factor: 来自 STOP_SIGN / RED 等事件（0~1）
-        self.event_speed_factor = 1.0
+        self.event_speed_factor = 0.8
 
         # ========== 4) 重定位预热相关 ==========
         self.prelocalization_active = False   # 是否在预热阶段
@@ -271,9 +278,9 @@ class WaypointNavigator(Node):
         self.preloc_leg_start_x = None
         self.preloc_leg_start_y = None
 
-        # 预热阶段：nav_speed_factor=0.3，event_speed_factor保持1.0
+        # 预热阶段：nav_speed_factor=0.3，event_speed_factor保持0.8
         self.nav_speed_factor = 0.3
-        self.event_speed_factor = 1.0
+        self.event_speed_factor = 0.8
         self.update_speed_limit()
 
         self.get_logger().info(
@@ -666,7 +673,7 @@ class WaypointNavigator(Node):
             # 第一次看到 STOP_SIGN，进入 APPROACHING 状态 + 慢速 (0.5)
             if ev == "STOP_SIGN" and 0.0 < dist < 10.0:
                 self.stop_sign_state = "APPROACHING"
-                # 只有在没有红灯控制时才把 event_speed_factor 从 1.0 降到 0.5
+                # 只有在没有红灯控制时才把 event_speed_factor 从 0.8 降到 0.5
                 if not self.red_light_active and self.event_speed_factor > 0.5:
                     self.event_speed_factor = 0.5
                     self.get_logger().info(
@@ -689,9 +696,9 @@ class WaypointNavigator(Node):
             # 计时结束，恢复前进，并锁定为 DONE（单次任务仅激活一次）
             if now >= self.stop_sign_hold_end_time:
                 self.stop_sign_state = "DONE"
-                # 若此时没有红灯生效，恢复 event_speed_factor = 1.0
+                # 若此时没有红灯生效，恢复 event_speed_factor = 0.8
                 if not self.red_light_active:
-                    self.event_speed_factor = 1.0
+                    self.event_speed_factor = 0.8
                     self.get_logger().info("[STOP_SIGN] Hold finished → RESUME (1.0x)")
                     self.update_speed_limit()
         # DONE 状态下不再响应后续 STOP_SIGN（整个任务只触发一次）
@@ -722,7 +729,7 @@ class WaypointNavigator(Node):
                             "[RED] Cleared, keep STOP_SIGN slowdown (0.5x)"
                         )
                     else:
-                        self.event_speed_factor = 1.0
+                        self.event_speed_factor = 0.8
                         self.get_logger().info("[RED] Cleared (GREEN/NONE) → RESUME")
                     self.update_speed_limit()
         if now >= self.stop_sign_hold_end_time:
