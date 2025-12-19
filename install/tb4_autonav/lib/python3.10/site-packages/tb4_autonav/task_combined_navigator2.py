@@ -163,6 +163,7 @@ class WaypointNavigator(Node):
         # STOP SIGN 状态机："IDLE" / "APPROACHING" / "HOLDING" / "DONE"
         self.stop_sign_state = "IDLE"
         self.stop_sign_hold_end_time = 0.0
+        self.red_light_hold_end_time = 0.0
 
         # 红灯状态
         self.red_light_active = False
@@ -595,7 +596,8 @@ class WaypointNavigator(Node):
                 self.send_pick_command()
                 self.waiting_for_pick_place = True
                 return
-
+            
+            # index=4 is wrong the index of place is 3
             elif completed_index == 3:  # Place point
                 self.get_logger().info("Arrived at PLACE location. Sending 'start place' command.")
                 self.send_place_command()
@@ -710,7 +712,19 @@ class WaypointNavigator(Node):
         msg = SpeedLimit()
         msg.speed_limit = float(final_factor * 100.0)  # 0–100%
         msg.percentage = True
+        self.get_logger().info(
+            f"Speed limit updated: nav_factor={self.nav_speed_factor:.2f}, "
+            f"event_factor={self.event_speed_factor:.2f}, final_factor={final_factor:.2f}, "
+            f"published limit={msg.speed_limit:.1f}%"
+            )
         self.speed_limit_pub.publish(msg)
+
+        # if final_factor <= 0.01:
+        #     zero_twist = Twist()
+        #     zero_twist.linear.x = 0.0   # 线速度0
+        #     zero_twist.angular.z = 0.0  # 角速度0（防转弯）
+        #     self.cmd_vel_pub.publish(zero_twist)  # __init__中创建: self.cmd_vel_pub = self.create_publisher(Twist, '/cmd_vel', 10)
+        #     self.get_logger().info("FORCE FULL STOP: linear.x=0.0, angular.z=0.0")
 
     # ------------------------------------------------------------------
     # 交通事件守护：处理 RED/STOP_SIGN 规则 + 恢复
@@ -781,7 +795,7 @@ class WaypointNavigator(Node):
             if ev == "STOP_SIGN" and 0.0 < dist <= 1.0:
                 self.stop_sign_state = "HOLDING"
                 self.stop_sign_hold_end_time = now + 3.0  # 初始化3s计时
-                self.event_speed_factor = 0.01
+                self.event_speed_factor = 0.00
                 self.get_logger().info(
                     f"[STOP_SIGN] Reached <=0.7m ({dist:.2f} m) → START HOLDING (3s timer)"
                 )
@@ -807,43 +821,86 @@ class WaypointNavigator(Node):
                     self.update_speed_limit()
             else:
                 # 计时未结束，保持停车
-                self.event_speed_factor = 0.01
+                self.event_speed_factor = 0.00
                 self.update_speed_limit()
         # DONE 状态下不再响应后续 STOP_SIGN（整个任务只触发一次）
-
-
 
         # ================= RED / GREEN 逻辑 =================
         # RED 且距离在 (0.5, 1.5] m 区间 → 停车
         if ev == "RED" and 0.5 < dist <= 1.2:
             if not self.red_light_active:
                 self.red_light_active = True
-                self.event_speed_factor = 0.0
+                self.red_light_hold_end_time = now + 3.0 # 初始化缓冲时间 (0.5s，防抖)
+                self.event_speed_factor = 0.00
                 self.get_logger().info(
-                    f"[RED] Detected at {dist:.2f} m → STOP and wait"
+                    f"[RED] Detected at {dist:.2f} m → STOP and wait (0.5s buffer)"
                 )
                 self.update_speed_limit()
 
-        # 红灯解除条件：事件变为 GREEN 或 NONE（或距离无效）
+        # 红灯解除条件：缓冲时间结束后变为 GREEN 或 NONE（或距离无效）才解除
         if self.red_light_active:
-            if ev in ("GREEN", "NONE") or dist < 0.0:
+            if ev == "RED" and 0.5 < dist <= 1.2:
+                # 目标还在，重置缓冲时间
+                self.red_light_hold_end_time = now + 3.0
+                self.get_logger().debug(f"[RED] Target still close ({dist:.2f} m), refresh 0.5s buffer")
+            else:
+                # 目标丢失或变化，继续计时
+                self.get_logger().debug(f"[RED] Target missed ({dist:.2f} m), buffer remaining: {self.red_light_hold_end_time - now:.2f}s")
+        
+            # 检查缓冲时间是否结束
+            if now >= self.red_light_hold_end_time:
                 self.red_light_active = False
-                # 若此时 STOP_SIGN 不在 HOLDING 状态，才真正恢复 event_speed_factor
-                if self.stop_sign_state != "HOLDING":
-                    # 如果 STOP_SIGN 还在 APPPROACHING 且已触发过 0.5x，那么保持 0.5；
-                    # 否则恢复到 1.0
-                    if self.stop_sign_state == "APPROACHING":
-                        if self.event_speed_factor > 0.5:
-                            self.event_speed_factor = 0.5
-                        self.get_logger().info(
-                            "[RED] Cleared, keep STOP_SIGN slowdown (0.5x)"
-                        )
-                    else:
-                        self.event_speed_factor = 0.8
-                        self.get_logger().info("[RED] Cleared (GREEN/NONE) → RESUME")
-                    self.update_speed_limit()
-        if now >= self.stop_sign_hold_end_time:
-            self.event_speed_factor = 0.0
+                self.event_speed_factor = 0.8
+                self.get_logger().info("[RED] Buffer expired (GREEN/NONE) → RESUME")
+                self.update_speed_limit()
+            else:
+                # 缓冲未结束，保持停车
+                self.event_speed_factor = 0.0
+                self.update_speed_limit()
+
+        # # ================= RED / GREEN 逻辑 =================
+        # # RED 且距离在 (0.5, 1.5] m 区间 → 停车
+        # if ev == "RED" and 0.5 < dist <= 1.2:
+        #     if not self.red_light_active:
+        #         self.red_light_active = True
+        #         self.red_light_hold_end_time = now + 0.5  # 初始化缓冲时间 (0.5s，防抖)
+        #         self.event_speed_factor = 0.01
+        #         self.get_logger().info(
+        #             f"[RED] Detected at {dist:.2f} m → STOP and wait (0.5s buffer)"
+        #         )
+        #         self.update_speed_limit()
+
+        # # 红灯解除条件：缓冲时间结束后变为 GREEN 或 NONE（或距离无效）才解除
+        # if self.red_light_active:
+        #     if ev == "RED" and 0.5 < dist <= 1.2:
+        #         # 目标还在，重置缓冲时间
+        #         self.red_light_hold_end_time = now + 0.5
+        #         self.get_logger().debug(f"[RED] Target still close ({dist:.2f} m), refresh 0.5s buffer")
+        #     else:
+        #         # 目标丢失或变化，继续计时
+        #         self.get_logger().debug(f"[RED] Target missed ({dist:.2f} m), buffer remaining: {self.red_light_hold_end_time - now:.2f}s")
+            
+        #     # 检查缓冲时间是否结束
+        #     if now >= self.red_light_hold_end_time:
+        #         self.red_light_active = False
+        #         # 若此时 STOP_SIGN 不在 HOLDING 状态，才真正恢复 event_speed_factor
+        #         if self.stop_sign_state != "HOLDING":
+        #             # 如果 STOP_SIGN 还在 APPROACHING 且已触发过 0.5x，那么保持 0.5；
+        #             # 否则恢复到 1.0
+        #             if self.stop_sign_state == "APPROACHING":
+        #                 if self.event_speed_factor > 0.5:
+        #                     self.event_speed_factor = 0.5
+        #                 self.get_logger().info(
+        #                     "[RED] Buffer expired, keep STOP_SIGN slowdown (0.5x)"
+        #                 )
+        #             else:
+        #                 self.event_speed_factor = 0.8
+        #                 self.get_logger().info("[RED] Buffer expired (GREEN/NONE) → RESUME")
+        #             self.update_speed_limit()
+        #     else:
+        #         # 缓冲未结束，保持停车
+        #         self.event_speed_factor = 0.0
+        #         self.update_speed_limit()
 
     def send_pick_command(self):
             """示例：发送 '到达目标，启动Pick' 命令"""
@@ -873,13 +930,13 @@ class WaypointNavigator(Node):
         if msg.status == 2:  # Pick completed
             self.get_logger().info("Pick operation confirmed complete. Resuming navigation.")
             self.waiting_for_pick_place = False
-            self.current_index += 1
+            # self.current_index += 1
             self.send_next_goal()
 
         elif msg.status == 4:  # Place completed
             self.get_logger().info("Place operation confirmed complete. Resuming navigation.")
             self.waiting_for_pick_place = False
-            self.current_index += 1
+            # self.current_index += 1
             self.send_next_goal()
 
 def main(args=None):

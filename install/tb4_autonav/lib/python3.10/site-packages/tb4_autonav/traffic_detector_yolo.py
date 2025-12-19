@@ -433,7 +433,6 @@ from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
 from tb4_autonav_interfaces.msg import TrafficEvent, YoloTargetBias
-
 class TrafficDetectorYolo(Node):
     """
     YOLO 视觉检测节点：
@@ -460,19 +459,19 @@ class TrafficDetectorYolo(Node):
         # 1) 模型路径
         model_path = self.declare_parameter(
             "yolo_model",
-            "best_1.pt",  # 更新为你的模型路径
+            "best_1.pt", # 更新为你的模型路径
         ).get_parameter_value().string_value
         # 2) YOLO 输入图片大小 (imgsz)
         # - 传给 ultralytics YOLO 的 imgsz 参数
         # - 不会改变我们对像素坐标的使用（ultralytics 会把 box 映射回原图尺寸）
         self.yolo_img_size = self.declare_parameter(
             "yolo_img_size",
-            640  # 默认 640，调整为合适值
+            640 # 默认 640，调整为合适值
         ).get_parameter_value().integer_value
         # 3) YOLO 推理频率 (Hz)，例如 5Hz -> 每 0.2s 做一次推理
         yolo_infer_rate = self.declare_parameter(
             "yolo_infer_rate",
-            10.0  # ~20Hz，匹配你的 inference_interval=0.05s
+            10.0 # ~20Hz，匹配你的 inference_interval=0.05s
         ).get_parameter_value().double_value
         # 防止除 0，给一个最小频率
         if yolo_infer_rate <= 0.0:
@@ -491,9 +490,9 @@ class TrafficDetectorYolo(Node):
         }
         # ---------------- 距离估计参数 ----------------
         self.real_size_m = {
-            "RED": 0.25, # 圆形直径
-            "GREEN": 0.25, # 圆形直径
-            "STOP_SIGN": 0.4, # 正八边形高度
+            "RED": 0.13, # 圆形直径
+            "GREEN": 0.15, # 圆形直径
+            "STOP_SIGN": 0.2, # 正八边形高度
         }
         self.focal_length_px = 610.0
         # ---------------- 发布者 ----------------
@@ -576,7 +575,7 @@ class TrafficDetectorYolo(Node):
         else:
             if self.last_has_target:
                 self.miss_count += 1
-                if self.miss_count >= 10:  # 保持模板的 10 帧（~0.5s @20Hz）
+                if self.miss_count >= 10: # 保持模板的 10 帧（~0.5s @20Hz）
                     # 连续帧没目标 -> 正式 announce has_target=False
                     bias_msg = YoloTargetBias()
                     bias_msg.header.stamp = self.get_clock().now().to_msg()
@@ -620,7 +619,7 @@ class TrafficDetectorYolo(Node):
           annotated_img: 可选的标注图像
         """
         h, w, _ = bgr_img.shape
-        annotated_img = bgr_img.copy()  # 用于标注
+        annotated_img = bgr_img.copy() # 用于标注
         if results.boxes is None or len(results.boxes) == 0:
             return False, "NONE", -1.0, 0.0, 0.0, annotated_img
         names = results.names # dict: class_id -> class_name
@@ -646,15 +645,15 @@ class TrafficDetectorYolo(Node):
             # 1) 类型判定 + 距离估算
             if logical_cls == "STOP_SIGN":
                 event_type = "STOP_SIGN"
-                distance_m = self._estimate_distance_from_size(bbox_h, event_type)
+                distance_m = self._estimate_distance_from_size(bbox_w, event_type)
                 # 标注（红色框）
                 cv2.rectangle(annotated_img, (int(x1), int(y1)), (int(x2), int(y2)), (0, 0, 255), 2)
                 label = f"{cls_name} {conf:.2f} ({event_type})"
                 cv2.putText(annotated_img, label, (int(x1), max(int(y1) - 5, 0)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
-                self.get_logger().info(f"Detected: {cls_name} - State: {event_type} (conf: {conf:.2f}, bbox_h: {bbox_h:.1f}px, distance: {distance_m:.2f}m)")
+                self.get_logger().info(f"Detected: {cls_name} - State: {event_type} (conf: {conf:.2f}, bbox_w: {bbox_w:.1f}px, distance: {distance_m:.2f}m)")
             else:
                 # traffic light -> 需要根据颜色再区分 RED / GREEN
-                event_type, distance_m = self._classify_traffic_light(bgr_img, x1, y1, x2, y2, bbox_h)
+                event_type, distance_m = self._classify_traffic_light(bgr_img, x1, y1, x2, y2, bbox_w)
                 if event_type == "NONE" or distance_m <= 0.0:
                     continue
                 # 标注（绿色框）
@@ -663,7 +662,7 @@ class TrafficDetectorYolo(Node):
                 cv2.rectangle(annotated_img, (int(x1), int(y1)), (int(x2), int(y2)), box_color, 2)
                 label = f"{cls_name} {conf:.2f} ({event_type})"
                 cv2.putText(annotated_img, label, (int(x1), max(int(y1) - 5, 0)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, box_color, 1, cv2.LINE_AA)
-                self.get_logger().info(f"Detected: {cls_name} - Color: {event_type} (conf: {conf:.2f}, bbox_h: {bbox_h:.1f}px, distance: {distance_m:.2f}m)")
+                self.get_logger().info(f"Detected: {cls_name} - Color: {event_type} (conf: {conf:.2f}, bbox_w: {bbox_w:.1f}px, distance: {distance_m:.2f}m)")
             # 选择最高置信度的（你的逻辑）
             if conf > best_conf:
                 best_conf = conf
@@ -675,12 +674,12 @@ class TrafficDetectorYolo(Node):
     # 交通灯颜色识别：RED / GREEN（使用你的 HSV 范围和阈值逻辑）
     # ------------------------------------------------------------------
     def _classify_traffic_light(
-        self, bgr_img, x1, y1, x2, y2, bbox_h: float
+        self, bgr_img, x1, y1, x2, y2, bbox_w: float
     ) -> Tuple[str, float]:
         """
         在 YOLO 检出的 traffic light bbox 内，用 HSV 判断红/绿（你的逻辑）。
         返回:
-          ("RED" / "GREEN" / "NONE", distance_m)  # distance 基于像素高度
+          ("RED" / "GREEN" / "NONE", distance_m) # distance 基于像素宽度
         """
         h_img, w_img, _ = bgr_img.shape
         x1 = int(max(0, min(w_img - 1, x1)))
@@ -694,9 +693,9 @@ class TrafficDetectorYolo(Node):
         color_state = self.classify_color(roi)
         if color_state == "Other":
             return "NONE", -1.0
-        event_type = color_state.upper()  # "Red" -> "RED", "Green" -> "GREEN"
-        # 距离基于像素高度
-        distance_m = self._estimate_distance_from_size(bbox_h, event_type)
+        event_type = color_state.upper() # "Red" -> "RED", "Green" -> "GREEN"
+        # 距离基于像素宽度
+        distance_m = self._estimate_distance_from_size(bbox_w, event_type)
         return event_type, distance_m
     # ------------------------------------------------------------------
     # 距离估计：统一公式
@@ -704,19 +703,16 @@ class TrafficDetectorYolo(Node):
     def _estimate_distance_from_size(self, size_px: float, type_name: str) -> float:
         """
         size_px:
-          - 对红/绿灯：用 bbox 高度像素
-          - 对 STOP_SIGN：用 bbox 高度像素
-
+          - 对红/绿灯：用 bbox 宽度像素
+          - 对 STOP_SIGN：用 bbox 宽度像素
         distance ≈ real_size_m[type_name] * focal_length_px / size_px
         """
         if size_px <= 1.0:
             return -1.0
-
         H_real = self.real_size_m.get(type_name, 0.0)
         f = float(self.focal_length_px)
         if H_real <= 0.0 or f <= 0.0:
             return -1.0
-
         dist = (H_real * f) / float(size_px)
         dist = float(max(0.05, min(100.0, dist)))
         return dist
@@ -728,21 +724,21 @@ class TrafficDetectorYolo(Node):
         if roi.size == 0:
             return "Other"
         hsv = cv2.cvtColor(roi, cv2.COLOR_BGR2HSV)
-     
+    
         # 红灯 (双范围，你的范围)
         red_mask1 = cv2.inRange(hsv, np.array([0, 120, 70]), np.array([10, 255, 255]))
         red_mask2 = cv2.inRange(hsv, np.array([170, 120, 70]), np.array([180, 255, 255]))
         red_mask = red_mask1 + red_mask2
-     
+    
         # 绿灯（你的范围）
         green_mask = cv2.inRange(hsv, np.array([30, 60, 60]), np.array([110, 255, 255]))
-     
+    
         total = roi.shape[0] * roi.shape[1]
         red_ratio = np.sum(red_mask) / total
         green_ratio = np.sum(green_mask) / total
         #print(f"red:{red_ratio}, green:{green_ratio}")
-        threshold = 30  # 修正为0.3 (比例0-1，原30是错误)
-     
+        threshold = 30
+    
         if red_ratio > threshold:
             return "Red"
         elif green_ratio > threshold:
@@ -773,12 +769,11 @@ class TrafficDetectorYolo(Node):
         msg.type = event_type
         msg.distance_m = float(distance_m)
         # 像素坐标 -> 归一化偏差（你的逻辑：[-1,1]）
-        u = ((cx / img_w) - 0.5) * 2.0  # 左负右正
-        v = ((cy / img_h) - 0.5) * 2.0  # 上负下正
+        u = ((cx / img_w) - 0.5) * 2.0 # 左负右正
+        v = ((cy / img_h) - 0.5) * 2.0 # 上负下正
         msg.u_norm = float(u)
         msg.v_norm = float(v)
         self.bias_pub.publish(msg)
-
 def main(args=None):
     rclpy.init(args=args)
     node = TrafficDetectorYolo()
@@ -793,6 +788,5 @@ def main(args=None):
             cv2.destroyAllWindows()
         except Exception:
             pass
-
 if __name__ == "__main__":
     main()
