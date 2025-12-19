@@ -352,6 +352,14 @@
 	[
 		{
 			"backtrace" : 17,
+			"id" : "tb4_autonav_interfaces__rosidl_typesupport_c::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "tb4_autonav_interfaces__rosidl_generator_py::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 17,
 			"id" : "tb4_autonav_interfaces__py::@dc9ffb3faeca4ac16f17"
 		},
 		{
@@ -361,14 +369,6 @@
 		{
 			"backtrace" : 18,
 			"id" : "tb4_autonav_interfaces__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df"
-		},
-		{
-			"backtrace" : 17,
-			"id" : "tb4_autonav_interfaces__rosidl_typesupport_c::@6890427a1f51a3e7e1df"
-		},
-		{
-			"backtrace" : 7,
-			"id" : "tb4_autonav_interfaces__rosidl_generator_py::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "tb4_autonav_interfaces__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",

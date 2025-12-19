@@ -168,7 +168,7 @@ class PickPlace(Node):
         self.state_timeout_sec = {
             "INIT": 8.0,
             "SEARCH": 20000.0,
-            "AIM": 15.0,
+            "AIM": 30.0,
 
             "NEXT0": 8.0,
             "NEXT1": 8.0,
