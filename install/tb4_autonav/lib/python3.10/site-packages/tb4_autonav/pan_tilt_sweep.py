@@ -11,27 +11,28 @@ from tb4_autonav_interfaces.msg import PickPlaceEvent
 
 class PanTiltSweepController(Node):
     """
-    云台控制节点（受 PickPlaceEvent.status 控制）：
+    云台控制节点（最终稳定语义版）：
 
-    status % 2 == 0 -> Nav 开 -> 云台正常工作（SWEEP / TRACK）
-    status % 2 == 1 -> Nav 关 -> 云台 INHIBIT（不发布任何控制指令）
+    PickPlaceEvent.status 语义：
+      - status == 1 : INHIBIT（唯一进入条件）
+      - status != 1 : 正常 SWEEP / TRACK 循环（包括 status == 2）
 
-    模式：
-      - SWEEP  : 巡航扫描
-      - TRACK  : 视觉目标追踪
-      - INHIBIT: Nav 关闭，完全不控制云台（不 publish）
+    设计原则：
+      - INHIBIT 是硬中断态
+      - 退出 INHIBIT 后不强制 TRACK
+      - TRACK 只由 YOLO has_target 决定
     """
 
     def __init__(self):
         super().__init__("pan_tilt_sweep_controller")
 
         # ---------------- 参数 ----------------
-        self.declare_parameter("yaw_min_deg", -5.0)
-        self.declare_parameter("yaw_max_deg", 5.0)
+        self.declare_parameter("yaw_min_deg", -3.0)
+        self.declare_parameter("yaw_max_deg", 3.0)
         self.declare_parameter("pitch_min_deg", 18.0)
         self.declare_parameter("pitch_max_deg", 25.0)
 
-        self.declare_parameter("yaw_speed_deg", 8.0)
+        self.declare_parameter("yaw_speed_deg", 4.0)
         self.declare_parameter("pitch_speed_deg", 13.0)
         self.declare_parameter("soft_zone_deg", 0.0)
 
@@ -48,6 +49,11 @@ class PanTiltSweepController(Node):
         self.pitch_min = float(self.get_parameter("pitch_min_deg").value)
         self.pitch_max = float(self.get_parameter("pitch_max_deg").value)
 
+        self.base_yaw_min = self.yaw_min
+        self.base_yaw_max = self.yaw_max
+        self.base_pitch_min = self.pitch_min
+        self.base_pitch_max = self.pitch_max
+
         self.yaw_speed = abs(float(self.get_parameter("yaw_speed_deg").value))
         self.pitch_speed = abs(float(self.get_parameter("pitch_speed_deg").value))
         self.soft_zone = float(self.get_parameter("soft_zone_deg").value)
@@ -59,12 +65,6 @@ class PanTiltSweepController(Node):
         self.track_deadband = float(self.get_parameter("track_deadband").value)
         self.track_timeout = float(self.get_parameter("track_timeout").value)
 
-        # 保存 SWEEP 原始范围
-        self.base_yaw_min = self.yaw_min
-        self.base_yaw_max = self.yaw_max
-        self.base_pitch_min = self.pitch_min
-        self.base_pitch_max = self.pitch_max
-
         # ---------------- Publisher ----------------
         self.cmd_pub = self.create_publisher(
             PanTiltCmdDeg,
@@ -73,23 +73,19 @@ class PanTiltSweepController(Node):
         )
 
         # ---------------- 状态 ----------------
+        self.mode = "SWEEP"          # SWEEP / TRACK / INHIBIT
+        self.inhibit_active = False
+
         self.yaw_current = 0.0
         self.pitch_current = 0.0
         self.yaw_dir = 1.0
         self.pitch_dir = 1.0
 
-        self.speed_field = min(max(self.yaw_speed, self.pitch_speed, 1.0), 30.0)
-
-        # 模式管理
-        self.mode = "SWEEP"          # SWEEP / TRACK / INHIBIT
-        self.prev_mode = "SWEEP"
-        self.inhibit_active = False
-
-        # TRACK 相关
         self.target_u = 0.0
         self.target_v = 0.0
         self.last_bias_time = None
 
+        self.speed_field = min(max(self.yaw_speed, self.pitch_speed, 1.0), 30.0)
         self.last_time = self.get_clock().now()
 
         # ---------------- Subscriptions ----------------
@@ -102,7 +98,7 @@ class PanTiltSweepController(Node):
 
         self.pick_place_sub = self.create_subscription(
             PickPlaceEvent,
-            "/PickPlaceEvent",
+            "/PickPlaceEvent_N2P",
             self.pick_place_callback,
             10,
         )
@@ -111,31 +107,38 @@ class PanTiltSweepController(Node):
 
         self.get_logger().info(
             "PanTiltSweepController started.\n"
-            "  Nav OFF (status%2==1) -> INHIBIT (no publish)\n"
-            "  Nav ON  (status%2==0) -> normal SWEEP/TRACK"
+            "  status == 1  -> INHIBIT\n"
+            "  status != 1  -> SWEEP / TRACK"
         )
 
-    # ---------------- PickPlaceEvent 回调 ----------------
+    # ------------------------------------------------
+    # PickPlaceEvent 回调（核心修改点）
+    # ------------------------------------------------
     def pick_place_callback(self, msg: PickPlaceEvent):
         status = int(msg.status)
-        nav_on = (status % 2 == 0)
 
-        if (not nav_on) and (not self.inhibit_active):
-            self.inhibit_active = True
-            self.prev_mode = self.mode
-            self.mode = "INHIBIT"
-            self.last_time = self.get_clock().now()
-            self.get_logger().info(f"[MODE] INHIBIT (Nav OFF), status={status}")
+        # ========= 进入 INHIBIT（唯一条件） =========
+        if status == 1:
+            if not self.inhibit_active:
+                self.inhibit_active = True
+                self.mode = "INHIBIT"
+                self.last_time = self.get_clock().now()
+                self.get_logger().info("[MODE] INHIBIT (status == 1)")
             return
 
-        if nav_on and self.inhibit_active:
+        # ========= 退出 INHIBIT（status != 1） =========
+        if self.inhibit_active:
             self.inhibit_active = False
-            self.mode = self.prev_mode if self.prev_mode in ("SWEEP", "TRACK") else "SWEEP"
+            self.mode = "SWEEP"   # 回到确定态，TRACK 由 YOLO 再触发
             self.last_bias_time = None
             self.last_time = self.get_clock().now()
-            self.get_logger().info(f"[MODE] Resume {self.mode} (Nav ON), status={status}")
+            self.get_logger().info(
+                f"[MODE] Exit INHIBIT (status={status}) → resume SWEEP/TRACK"
+            )
 
-    # ---------------- YOLO 回调 ----------------
+    # ------------------------------------------------
+    # YOLO 回调（唯一进入 TRACK 的入口）
+    # ------------------------------------------------
     def yolo_callback(self, msg: YoloTargetBias):
         if self.mode == "INHIBIT":
             return
@@ -153,25 +156,9 @@ class PanTiltSweepController(Node):
             if self.mode == "TRACK":
                 self.exit_track_mode("has_target=False")
 
-    # ---------------- 模式切换 ----------------
-    def enter_track_mode(self):
-        self.mode = "TRACK"
-        self.yaw_min = -self.track_yaw_limit
-        self.yaw_max = self.track_yaw_limit
-        self.pitch_min = -self.track_pitch_limit
-        self.pitch_max = self.track_pitch_limit
-
-    def exit_track_mode(self, reason=""):
-        self.mode = "SWEEP"
-        self.yaw_min = self.base_yaw_min
-        self.yaw_max = self.base_yaw_max
-        self.pitch_min = self.base_pitch_min
-        self.pitch_max = self.base_pitch_max
-
-        self.yaw_current = max(min(self.yaw_current, self.yaw_max), self.yaw_min)
-        self.pitch_current = max(min(self.pitch_current, self.pitch_max), self.pitch_min)
-
-    # ---------------- 主循环 ----------------
+    # ------------------------------------------------
+    # 主控制循环
+    # ------------------------------------------------
     def control_loop(self):
         now = self.get_clock().now()
         dt = (now.nanoseconds - self.last_time.nanoseconds) * 1e-9
@@ -179,10 +166,11 @@ class PanTiltSweepController(Node):
             return
         self.last_time = now
 
-        # 🚫 Nav 关：完全不发布云台控制
+        # INHIBIT：不发布任何控制
         if self.mode == "INHIBIT":
             return
 
+        # TRACK 超时
         if self.mode == "TRACK" and self.last_bias_time is not None:
             if (now - self.last_bias_time).nanoseconds * 1e-9 > self.track_timeout:
                 self.exit_track_mode("timeout")
@@ -198,13 +186,19 @@ class PanTiltSweepController(Node):
         cmd.pitch = self.pitch_current
         self.cmd_pub.publish(cmd)
 
-    # ---------------- SWEEP ----------------
+    # ------------------------------------------------
+    # SWEEP
+    # ------------------------------------------------
     def update_sweep(self, dt):
         self.yaw_current, self.yaw_dir = self.update_axis(
-            self.yaw_current, self.yaw_dir, self.yaw_min, self.yaw_max, self.yaw_speed, dt
+            self.yaw_current, self.yaw_dir,
+            self.yaw_min, self.yaw_max,
+            self.yaw_speed, dt
         )
         self.pitch_current, self.pitch_dir = self.update_axis(
-            self.pitch_current, self.pitch_dir, self.pitch_min, self.pitch_max, self.pitch_speed, dt
+            self.pitch_current, self.pitch_dir,
+            self.pitch_min, self.pitch_max,
+            self.pitch_speed, dt
         )
 
     def update_axis(self, cur, direction, mn, mx, speed, dt):
@@ -229,16 +223,28 @@ class PanTiltSweepController(Node):
 
         return cur, direction
 
-    # ---------------- TRACK ----------------
-    def update_track(self, dt):
-        u = 0.0 if abs(self.target_u) < self.track_deadband else self.target_u
-        v = 0.0 if abs(self.target_v) < self.track_deadband else self.target_v
+    # ------------------------------------------------
+    # TRACK
+    # ------------------------------------------------
+    def enter_track_mode(self):
+        self.mode = "TRACK"
+        self.yaw_min = -self.track_yaw_limit
+        self.yaw_max = self.track_yaw_limit
+        self.pitch_min = -self.track_pitch_limit
+        self.pitch_max = self.track_pitch_limit
 
-        self.yaw_current += -self.track_k_yaw * u * dt
-        self.pitch_current += self.track_k_pitch * v * dt
+    def exit_track_mode(self, reason=""):
+        self.mode = "SWEEP"
+        self.yaw_min = self.base_yaw_min
+        self.yaw_max = self.base_yaw_max
+        self.pitch_min = self.base_pitch_min
+        self.pitch_max = self.base_pitch_max
 
-        self.yaw_current = max(-self.track_yaw_limit, min(self.yaw_current, self.track_yaw_limit))
-        self.pitch_current = max(-self.track_pitch_limit, min(self.pitch_current, self.track_pitch_limit))
+        self.yaw_current = max(min(self.yaw_current, self.yaw_max), self.yaw_min)
+        self.pitch_current = max(min(self.pitch_current, self.pitch_max), self.pitch_min)
+
+        if reason:
+            self.get_logger().info(f"[MODE] TRACK → SWEEP ({reason})")
 
 
 def main(args=None):
