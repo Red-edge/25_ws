@@ -566,7 +566,7 @@ class PickPlace(Node):
 
             case "NEXT2_GRASP":
                 if not self._state_init:
-                    self.grasp(0.55)
+                    self.grasp(0.65)
                     self._set_wait(1.0)
                     self._state_init = True
                     return
