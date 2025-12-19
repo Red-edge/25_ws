@@ -89,14 +89,14 @@ class WaypointNavigator(Node):
         self.operation_pub = self.create_publisher(
             PickPlaceEvent,
             # topic name 一致
-            "/PickPlaceEvent",
+            "/PickPlaceEvent_N2P",
             10
         )
 
         # B. 订阅者：接收 PickPlace 节点的状态反馈
         self.pick_status_sub = self.create_subscription(
             PickPlaceEvent,
-            "/PickPlaceEvent",
+            "/PickPlaceEvent_P2N",
             self.pick_status_callback,
             10
         )
@@ -556,7 +556,9 @@ class WaypointNavigator(Node):
         goal_handle = future.result()
         if not goal_handle.accepted:
             self.get_logger().error("Goal rejected by server.")
-            self.current_index += 1
+
+            # original 本来有 这个 没有response 就 +1
+            # self.current_index += 1
             self.send_next_goal()
             return
 
@@ -589,19 +591,23 @@ class WaypointNavigator(Node):
         self.get_logger().debug(f"Goal #{completed_index} finished with status {status}")
         self.get_logger().debug(f"Goal #{completed_index} finished with status {status}")
         self.get_logger().debug(f"Goal #{completed_index} finished with status {status}")
-
+        print('result callback')
         if status == 4:  # SUCCESS
             self.get_logger().info(f"Goal #{completed_index + 1} reached successfully.")
 
-            if completed_index == 2:  # Pick point
-                self.get_logger().info("Arrived at PICK location. Sending 'start pick' command.")
+            if completed_index == 2 &  self.waiting_for_pick_place:  # Pick point
+                for i in range (0,4):
+                    self.get_logger().info("Arrived at PICK location. Sending 'start pick' command.")
+                print('pickiiiiiiiiiiiiiiiiiing')
                 self.send_pick_command()
                 self.waiting_for_pick_place = True
                 return
             
             # index=4 is wrong the index of place is 3
             elif completed_index == 3:  # Place point
-                self.get_logger().info("Arrived at PLACE location. Sending 'start place' command.")
+                print('placccccccccccccccccccccing')
+                for i in range (0,4):
+                    self.get_logger().info("Arrived at PLACE location. Sending 'start place' command.")
                 self.send_place_command()
                 self.waiting_for_pick_place = True
                 return
@@ -927,21 +933,24 @@ class WaypointNavigator(Node):
             4: "PLACE COMPLETED – RESUMING NAVIGATION"
         }
         status_str = status_map.get(msg.status, f"UNKNOWN STATUS ({msg.status})")
-        self.get_logger().info(f"[PickPlace Feedback] {status_str}")
+        # self.get_logger().info(f"[PickPlace Feedback] {status_str}")
+        print('pick_status_callback')
+        print('1'*100)
 
         if msg.status == 2 & self.current_index==2:  # Pick completed
             self.get_logger().info("Pick operation confirmed complete. Resuming navigation.")
+            self.get_logger().info("Pick operation confirmed complete. Resuming navigation.")
+            print('2'*100)
             self.waiting_for_pick_place = False
 
             # 收到pick 结束之后， 应该？
-            self.current_index += 1
-            self.send_next_goal() 
+            # self.send_next_goal() 
 
         elif msg.status == 4:  # Place completed
             self.get_logger().info("Place operation confirmed complete. Resuming navigation.")
             self.waiting_for_pick_place = False
             # self.current_index += 1
-            self.send_next_goal()
+            # self.send_next_goal()
 
 def main(args=None):
     rclpy.init(args=args)
