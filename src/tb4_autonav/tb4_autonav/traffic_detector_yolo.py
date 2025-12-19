@@ -736,8 +736,8 @@ class TrafficDetectorYolo(Node):
         total = roi.shape[0] * roi.shape[1]
         red_ratio = np.sum(red_mask) / total
         green_ratio = np.sum(green_mask) / total
-        #print(f"red:{red_ratio}, green:{green_ratio}")
-        threshold = 30
+        print(f"red:{red_ratio}, green:{green_ratio}")
+        threshold = 24
     
         if red_ratio > threshold:
             return "Red"
